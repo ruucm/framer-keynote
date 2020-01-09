@@ -7,6 +7,8 @@ export function MediaContainer(props) {
 }
 
 MediaContainer.defaultProps = {
+  width: 1178,
+  height: 803,
   ...System.MediaContainer.defaultProps
 }; // add same default props from System
 addPropertyControls(MediaContainer, {

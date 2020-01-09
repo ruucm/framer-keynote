@@ -806,67 +806,6 @@
         "widthType" : 0
       },
       {
-        "__class" : "CodeComponentNode",
-        "aspectRatio" : null,
-        "bottom" : null,
-        "centerAnchorX" : 0.71223958333333337,
-        "centerAnchorY" : 0.76574074074074072,
-        "children" : [
-
-        ],
-        "clip" : true,
-        "codeComponentIdentifier" : ".\/MediaContainer.tsx_MediaContainer",
-        "codeComponentProps" : {
-          "content" : [
-            {
-              "enabled" : true,
-              "type" : "componentinstance",
-              "value" : "TPk6_dCyr"
-            }
-          ],
-          "reveal" : true
-        },
-        "codeOverrideEnabled" : false,
-        "constraintsLocked" : false,
-        "deviceType" : null,
-        "exportOptions" : [
-
-        ],
-        "fillColor" : "rgba(255,255,255,1)",
-        "fillEnabled" : false,
-        "fillImage" : null,
-        "fillImageOriginalName" : null,
-        "fillImagePixelHeight" : null,
-        "fillImagePixelWidth" : null,
-        "fillImageResize" : "fill",
-        "fillType" : "color",
-        "height" : 714,
-        "heightType" : 0,
-        "id" : "xKt6ZizC4",
-        "intrinsicHeight" : null,
-        "intrinsicWidth" : null,
-        "left" : 1666,
-        "locked" : false,
-        "name" : null,
-        "opacity" : 1,
-        "originalid" : null,
-        "parentid" : "jLUPs9gNN",
-        "previewSettings" : null,
-        "radius" : 0,
-        "radiusBottomLeft" : 0,
-        "radiusBottomRight" : 0,
-        "radiusIsRelative" : false,
-        "radiusPerCorner" : false,
-        "radiusTopLeft" : 0,
-        "radiusTopRight" : 0,
-        "right" : null,
-        "rotation" : 0,
-        "top" : 3097,
-        "visible" : true,
-        "width" : 909,
-        "widthType" : 0
-      },
-      {
         "__class" : "FrameNode",
         "aspectRatio" : 3.2950819672131146,
         "blendingEnabled" : 0,
@@ -1055,63 +994,6 @@
         "__class" : "CodeComponentNode",
         "aspectRatio" : null,
         "bottom" : null,
-        "centerAnchorX" : 0.17838541666666666,
-        "centerAnchorY" : 0.45000000000000001,
-        "children" : [
-
-        ],
-        "clip" : true,
-        "codeComponentIdentifier" : ".\/Description.tsx_Description",
-        "codeComponentProps" : {
-          "paragraph" : "The songs you had in iTunes are now in the Apple Music app. Look in your library to find the music you purchased from the iTunes Store or saved from Apple Music — organized by artists, albums, and songs.Click Recently Added in the sidebar to browse music you’ve added in the last week and month.",
-          "subTitle" : "An elevated music experience",
-          "title" : "Music",
-          "trayTitle" : "Explore new artists and genress"
-        },
-        "codeOverrideEnabled" : false,
-        "constraintsLocked" : false,
-        "deviceType" : null,
-        "exportOptions" : [
-
-        ],
-        "fillColor" : "rgba(255,255,255,1)",
-        "fillEnabled" : false,
-        "fillImage" : null,
-        "fillImageOriginalName" : null,
-        "fillImagePixelHeight" : null,
-        "fillImagePixelWidth" : null,
-        "fillImageResize" : "fill",
-        "fillType" : "color",
-        "height" : 404,
-        "heightType" : 0,
-        "id" : "a5Z3WwnzP",
-        "intrinsicHeight" : 52,
-        "intrinsicWidth" : 380,
-        "left" : 1036,
-        "locked" : false,
-        "name" : null,
-        "opacity" : 1,
-        "originalid" : null,
-        "parentid" : "jLUPs9gNN",
-        "previewSettings" : null,
-        "radius" : 0,
-        "radiusBottomLeft" : 0,
-        "radiusBottomRight" : 0,
-        "radiusIsRelative" : false,
-        "radiusPerCorner" : false,
-        "radiusTopLeft" : 0,
-        "radiusTopRight" : 0,
-        "right" : null,
-        "rotation" : 0,
-        "top" : 1893,
-        "visible" : true,
-        "width" : 463,
-        "widthType" : 0
-      },
-      {
-        "__class" : "CodeComponentNode",
-        "aspectRatio" : null,
-        "bottom" : null,
         "centerAnchorX" : 0,
         "centerAnchorY" : 0,
         "children" : [
@@ -1124,14 +1006,14 @@
             {
               "enabled" : true,
               "type" : "componentinstance",
-              "value" : "a5Z3WwnzP"
+              "value" : "M33Kl14Dv"
             }
           ],
           "mediaLayer" : [
             {
               "enabled" : true,
               "type" : "componentinstance",
-              "value" : "xKt6ZizC4"
+              "value" : "drw97HhRJ"
             }
           ]
         },
@@ -1154,7 +1036,7 @@
         "id" : "TWbXuMYVi",
         "intrinsicHeight" : 1080,
         "intrinsicWidth" : 1920,
-        "left" : -1294,
+        "left" : -1558,
         "locked" : false,
         "name" : null,
         "opacity" : 1,
@@ -1170,7 +1052,7 @@
         "radiusTopRight" : 0,
         "right" : null,
         "rotation" : 0,
-        "top" : 2463,
+        "top" : 2095,
         "visible" : true,
         "width" : 1920,
         "widthType" : 0
@@ -1253,7 +1135,8 @@
         "clip" : true,
         "codeComponentIdentifier" : ".\/PageNumber.tsx_PageNumber",
         "codeComponentProps" : {
-
+          "currentPage" : 0,
+          "totalPage" : 14
         },
         "codeOverrideEnabled" : false,
         "constraintsLocked" : false,
@@ -1293,6 +1176,256 @@
         "top" : 1095,
         "visible" : true,
         "width" : 677,
+        "widthType" : 0
+      },
+      {
+        "__class" : "CodeComponentNode",
+        "aspectRatio" : null,
+        "bottom" : null,
+        "centerAnchorX" : 0,
+        "centerAnchorY" : 0,
+        "children" : [
+
+        ],
+        "clip" : true,
+        "codeComponentIdentifier" : ".\/Description.tsx_Description",
+        "codeComponentProps" : {
+          "paragraph" : "The songs you had in iTunes are now in the Apple Music app. Look in your library to find the music you purchased from the iTunes Store or saved from Apple Music — organized by artists, albums, and songs.Click Recently Added in the sidebar to browse music you’ve added in the last week and month.",
+          "subTitle" : "An elevated music experience",
+          "title" : "Music",
+          "trayTitle" : "Explore new artists and genress"
+        },
+        "codeOverrideEnabled" : false,
+        "constraintsLocked" : false,
+        "deviceType" : null,
+        "exportOptions" : [
+
+        ],
+        "fillColor" : "rgba(255,255,255,1)",
+        "fillEnabled" : false,
+        "fillImage" : null,
+        "fillImageOriginalName" : null,
+        "fillImagePixelHeight" : null,
+        "fillImagePixelWidth" : null,
+        "fillImageResize" : "fill",
+        "fillType" : "color",
+        "height" : 500,
+        "heightType" : 0,
+        "id" : "M33Kl14Dv",
+        "intrinsicHeight" : 500,
+        "intrinsicWidth" : 470,
+        "left" : 674,
+        "locked" : false,
+        "name" : null,
+        "opacity" : 1,
+        "originalid" : null,
+        "parentid" : "jLUPs9gNN",
+        "previewSettings" : null,
+        "radius" : 0,
+        "radiusBottomLeft" : 0,
+        "radiusBottomRight" : 0,
+        "radiusIsRelative" : false,
+        "radiusPerCorner" : false,
+        "radiusTopLeft" : 0,
+        "radiusTopRight" : 0,
+        "right" : null,
+        "rotation" : 0,
+        "top" : 2005,
+        "visible" : true,
+        "width" : 470,
+        "widthType" : 0
+      },
+      {
+        "__class" : "CodeComponentNode",
+        "aspectRatio" : null,
+        "bottom" : null,
+        "centerAnchorX" : 0,
+        "centerAnchorY" : 0,
+        "children" : [
+
+        ],
+        "clip" : true,
+        "codeComponentIdentifier" : ".\/MediaContainer.tsx_MediaContainer",
+        "codeComponentProps" : {
+          "content" : [
+            {
+              "enabled" : true,
+              "type" : "componentinstance",
+              "value" : "tDhapq9wv"
+            }
+          ],
+          "reveal" : true
+        },
+        "codeOverrideEnabled" : false,
+        "constraintsLocked" : false,
+        "deviceType" : null,
+        "exportOptions" : [
+
+        ],
+        "fillColor" : "rgba(255,255,255,1)",
+        "fillEnabled" : false,
+        "fillImage" : null,
+        "fillImageOriginalName" : null,
+        "fillImagePixelHeight" : null,
+        "fillImagePixelWidth" : null,
+        "fillImageResize" : "fill",
+        "fillType" : "color",
+        "height" : 803,
+        "heightType" : 0,
+        "id" : "drw97HhRJ",
+        "intrinsicHeight" : 803,
+        "intrinsicWidth" : 1178,
+        "left" : 634,
+        "locked" : false,
+        "name" : null,
+        "opacity" : 1,
+        "originalid" : null,
+        "parentid" : "jLUPs9gNN",
+        "previewSettings" : null,
+        "radius" : 0,
+        "radiusBottomLeft" : 0,
+        "radiusBottomRight" : 0,
+        "radiusIsRelative" : false,
+        "radiusPerCorner" : false,
+        "radiusTopLeft" : 0,
+        "radiusTopRight" : 0,
+        "right" : null,
+        "rotation" : 0,
+        "top" : 3438,
+        "visible" : true,
+        "width" : 1178,
+        "widthType" : 0
+      },
+      {
+        "__class" : "FrameNode",
+        "aspectRatio" : null,
+        "blendingEnabled" : 0,
+        "blendingMode" : "normal",
+        "bottom" : null,
+        "centerAnchorX" : 0,
+        "centerAnchorY" : 0,
+        "children" : [
+          {
+            "__class" : "FrameNode",
+            "aspectRatio" : 1.6619915848527349,
+            "blendingEnabled" : 0,
+            "blendingMode" : "normal",
+            "bottom" : null,
+            "centerAnchorX" : 0.50042444821731746,
+            "centerAnchorY" : 0.5,
+            "children" : [
+
+            ],
+            "clip" : false,
+            "codeOverrideEnabled" : false,
+            "constraintsLocked" : false,
+            "deviceType" : null,
+            "exportOptions" : [
+
+            ],
+            "fillColor" : "rgba(255,255,255,1)",
+            "fillEnabled" : true,
+            "fillImage" : "evrajLdM8Ex4HEdtqRp7mmLqVRM.png",
+            "fillImageOriginalName" : "Screen Shot 2020-01-09 at 4.00.58 PM.png",
+            "fillImagePixelHeight" : 1426,
+            "fillImagePixelWidth" : 2370,
+            "fillImageResize" : "fill",
+            "fillType" : "image",
+            "guidesX" : [
+
+            ],
+            "guidesY" : [
+
+            ],
+            "height" : 713,
+            "heightType" : 0,
+            "id" : "cLwQaPSkG",
+            "intrinsicHeight" : 713,
+            "intrinsicWidth" : 1185,
+            "isExternalMaster" : null,
+            "isMaster" : false,
+            "isTarget" : false,
+            "left" : -3,
+            "locked" : false,
+            "name" : "Screen_Shot_2020_01_09_at_4_00_58_PM",
+            "navigationTarget" : null,
+            "navigationTransition" : "push",
+            "navigationTransitionBackdropColor" : "rgba(4,4,15,.4)",
+            "navigationTransitionDirection" : "left",
+            "opacity" : 1,
+            "originalFilename" : "Screen Shot 2020-01-09 at 4.00.58 PM.png",
+            "originalid" : null,
+            "parentid" : "tDhapq9wv",
+            "previewSettings" : null,
+            "radius" : 0,
+            "radiusBottomLeft" : 0,
+            "radiusBottomRight" : 0,
+            "radiusIsRelative" : false,
+            "radiusPerCorner" : false,
+            "radiusTopLeft" : 0,
+            "radiusTopRight" : 0,
+            "replicaInfo" : null,
+            "right" : -4,
+            "rotation" : 0,
+            "top" : 45,
+            "visible" : true,
+            "width" : 1185,
+            "widthType" : 0
+          }
+        ],
+        "clip" : true,
+        "codeOverrideEnabled" : false,
+        "constraintsLocked" : false,
+        "deviceType" : null,
+        "exportOptions" : [
+
+        ],
+        "fillColor" : "white",
+        "fillEnabled" : true,
+        "fillImage" : null,
+        "fillImageOriginalName" : null,
+        "fillImagePixelHeight" : null,
+        "fillImagePixelWidth" : null,
+        "fillImageResize" : "fill",
+        "fillType" : "color",
+        "guidesX" : [
+
+        ],
+        "guidesY" : [
+
+        ],
+        "height" : 803,
+        "heightType" : 0,
+        "id" : "tDhapq9wv",
+        "intrinsicHeight" : null,
+        "intrinsicWidth" : null,
+        "isExternalMaster" : null,
+        "isMaster" : false,
+        "isTarget" : false,
+        "left" : 3052,
+        "locked" : false,
+        "name" : null,
+        "navigationTarget" : null,
+        "navigationTransition" : "push",
+        "navigationTransitionBackdropColor" : "rgba(4,4,15,.4)",
+        "navigationTransitionDirection" : "left",
+        "opacity" : 1,
+        "originalid" : null,
+        "parentid" : "jLUPs9gNN",
+        "previewSettings" : null,
+        "radius" : 0,
+        "radiusBottomLeft" : 0,
+        "radiusBottomRight" : 0,
+        "radiusIsRelative" : false,
+        "radiusPerCorner" : false,
+        "radiusTopLeft" : 0,
+        "radiusTopRight" : 0,
+        "replicaInfo" : null,
+        "right" : null,
+        "rotation" : 0,
+        "top" : 4174,
+        "visible" : true,
+        "width" : 1178,
         "widthType" : 0
       }
     ],

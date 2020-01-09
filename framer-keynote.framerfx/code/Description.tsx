@@ -7,8 +7,8 @@ export function Description(props) {
 }
 
 Description.defaultProps = {
-  width: 380,
-  height: 52,
+  width: 470,
+  height: 500,
   ...System.Description.defaultProps
 }; // add same default props from System
 addPropertyControls(Description, {
