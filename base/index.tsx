@@ -22,6 +22,7 @@ export const themes = {
       body: "#111",
       link: "#0070c9",
       background: "#FAFAFA",
+      secondary: "#98989d",
       border: "#d8d8d8"
     },
     font,
@@ -38,6 +39,7 @@ export const themes = {
       body: "#111",
       link: "#0070c9",
       background: "#FAFAFA",
+      secondary: "#98989d",
       border: "#d8d8d8"
     },
     font,

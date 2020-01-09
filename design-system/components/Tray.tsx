@@ -1,7 +1,7 @@
 // @flow
 import * as React from "react";
-import { useContext } from "react";
-import { motion } from "framer-motion";
+import { useContext, useEffect } from "react";
+import { motion, useAnimation } from "framer-motion";
 import styled, { css, ThemeContext } from "styled-components";
 import { themes } from "../../base";
 import { SharePropsWithChildren } from "../../base/utils/SharePropsWithChildren";
@@ -11,36 +11,74 @@ const Wrap = styled(motion.div)`
   border-top: 1px solid ${props => props.selectedTheme.color.border};
   border-bottom: 1px solid ${props => props.selectedTheme.color.border};
   cursor: pointer;
-  padding-top: 1.058em;
-  padding-bottom: calc(1.058em + 1px);
-  background: pink;
+  padding-top: 15.8px;
+  padding-bottom: 15.8px;
 `;
 const Icon = styled(motion.div)`
   width: 17.5px;
   height: 17.5px;
   position: absolute;
-  top: 1.058em;
+  top: 15.8px;
   right: 0;
 `;
+const Content = styled(motion.div)`
+  position: absolute;
+  top: 52px;
+`;
 
-export function Tray({ theme, title, expanded }) {
+const initialHeight = 52;
+export function Tray({ theme, title, expanded, children }) {
   const selectedTheme = useContext(ThemeContext) || themes[theme];
+  let expandedHeight = 300;
+  if (children.length)
+    expandedHeight = children[0].props.height + initialHeight + 15.8;
+
+  const wrapAnim = useAnimation();
+  const iconAnim = useAnimation();
+  const contentAnim = useAnimation();
+  useEffect(() => {
+    const expand = async () => {
+      wrapAnim.start({
+        height: expandedHeight
+      });
+      await iconAnim.start({
+        rotate: 45
+      });
+      contentAnim.start({
+        opacity: 1
+      });
+    };
+    const unexpand = async () => {
+      await contentAnim.start({
+        opacity: 0
+      });
+      wrapAnim.start({
+        height: initialHeight
+      });
+      iconAnim.start({
+        rotate: 0
+      });
+    };
+    if (expanded) expand();
+    else unexpand();
+  }, [expanded]);
 
   return (
     <SharePropsWithChildren selectedTheme={selectedTheme}>
-      <Wrap
-        animate={{
-          height: expanded ? 300 : 52
-        }}
-      >
+      <Wrap animate={wrapAnim} transition={selectedTheme.transitions.short}>
         <System.Typography text={title} type="ButtonText" />
-        <Icon
-          animate={{
-            rotate: expanded ? 90 : 0
-          }}
-        >
-          <System.Icon icon="Plus" />
+        <Icon animate={iconAnim} transition={selectedTheme.transitions.short}>
+          <System.Icon icon="Plus" color={selectedTheme.color.secondary} />
         </Icon>
+        <Content
+          initial={{
+            opacity: 0
+          }}
+          animate={contentAnim}
+          transition={selectedTheme.transitions.short}
+        >
+          {children}
+        </Content>
       </Wrap>
     </SharePropsWithChildren>
   );

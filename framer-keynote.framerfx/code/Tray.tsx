@@ -14,5 +14,8 @@ Tray.defaultProps = {
 addPropertyControls(Tray, {
   expanded: {
     type: ControlType.Boolean
+  },
+  children: {
+    type: ControlType.ComponentInstance
   }
 });
