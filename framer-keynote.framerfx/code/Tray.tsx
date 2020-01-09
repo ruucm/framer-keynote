@@ -12,6 +12,9 @@ Tray.defaultProps = {
   ...System.Tray.defaultProps
 }; // add same default props from System
 addPropertyControls(Tray, {
+  title: {
+    type: ControlType.String
+  },
   expanded: {
     type: ControlType.Boolean
   },
