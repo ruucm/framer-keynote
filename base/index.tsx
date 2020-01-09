@@ -23,7 +23,7 @@ export const themes = {
       link: "#0070c9",
       background: "#FAFAFA",
       secondary: "#98989d",
-      border: "#d8d8d8"
+      border: "rgb(216, 216, 216)"
     },
     font,
     breakpoint: {
@@ -40,7 +40,7 @@ export const themes = {
       link: "#0070c9",
       background: "#FAFAFA",
       secondary: "#98989d",
-      border: "#d8d8d8"
+      border: "rgb(216, 216, 216)"
     },
     font,
     breakpoint: {

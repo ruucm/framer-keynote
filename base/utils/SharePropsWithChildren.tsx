@@ -1,12 +1,22 @@
 import * as React from "react";
 
 export function SharePropsWithChildren({ children, ...props }) {
-  const renderChildren = () => {
-    return React.Children.map(children, child =>
-      React.cloneElement(child, {
-        ...props
-      })
-    );
-  };
-  return <>{renderChildren()}</>;
+  const fn = child => React.cloneElement(child, { ...props });
+
+  function renderRecursiveChildren(children, fn) {
+    return React.Children.map(children, child => {
+      if (!React.isValidElement(child)) {
+        return child;
+      }
+
+      if (child.props.children) {
+        child = React.cloneElement(child, {
+          children: renderRecursiveChildren(child.props.children, fn)
+        });
+      }
+
+      return fn(child);
+    });
+  }
+  return <>{renderRecursiveChildren(children, fn)}</>;
 }

@@ -6,3 +6,4 @@ export { Tray } from "./components/Tray";
 export { Description } from "./components/Description";
 export { Spacing } from "./components/Spacing";
 export { PageItem } from "./components/PageItem";
+export { PageNumber } from "./components/PageNumber";
