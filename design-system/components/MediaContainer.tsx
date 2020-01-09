@@ -1,7 +1,7 @@
 // @flow
 import * as React from "react";
-import { useContext } from "react";
-import { motion } from "framer-motion";
+import { useContext, useEffect } from "react";
+import { motion, useAnimation } from "framer-motion";
 import styled, { css, ThemeContext } from "styled-components";
 import { themes } from "../../base";
 import { SharePropsWithChildren } from "../../base/utils/SharePropsWithChildren";
@@ -12,21 +12,62 @@ const Wrap = styled(motion.div)`
   background: ${props => props.selectedTheme.color.background};
 `;
 
-export function MediaContainer({ content, theme, reveal }) {
+export function MediaContainer({ content, theme, reveal, from }) {
   const selectedTheme = useContext(ThemeContext) || themes[theme];
+  const anim = useAnimation();
+
+  useEffect(() => {
+    const fadeLeft = async () => {
+      anim.start({
+        x: "-100%",
+        opacity: 0
+      });
+    };
+    const revealFromLeft = async () => {
+      await anim.start({
+        x: "-100%",
+        opacity: 0,
+        transition: {
+          duration: 0
+        }
+      });
+      anim.start({
+        x: 0,
+        opacity: 1
+      });
+    };
+    const fadeRight = async () => {
+      anim.start({
+        x: "100%",
+        opacity: 0
+      });
+    };
+    const revealFromRight = async () => {
+      await anim.start({
+        x: "100%",
+        opacity: 0,
+        transition: {
+          duration: 0
+        }
+      });
+      anim.start({
+        x: 0,
+        opacity: 1
+      });
+    };
+
+    if (reveal) {
+      if (from === "right") revealFromRight();
+      else if (from === "left") revealFromLeft();
+    } else {
+      if (from === "right") fadeRight();
+      else if (from === "left") fadeLeft();
+    }
+  }, [reveal]);
 
   return (
     <SharePropsWithChildren selectedTheme={selectedTheme}>
-      <Wrap
-        initial={{
-          x: "100%"
-        }}
-        animate={{
-          opacity: reveal ? 1 : 0,
-          x: reveal ? 0 : "-100%"
-        }}
-        transition={selectedTheme.transitions.short}
-      >
+      <Wrap animate={anim} transition={selectedTheme.transitions.short}>
         {content && content.length ? content : "add Content"}
       </Wrap>
     </SharePropsWithChildren>
@@ -35,5 +76,6 @@ export function MediaContainer({ content, theme, reveal }) {
 MediaContainer.defaultProps = {
   content: null,
   theme: "light",
-  reveal: true
+  reveal: true,
+  from: "right"
 };

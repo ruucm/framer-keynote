@@ -17,5 +17,9 @@ addPropertyControls(MediaContainer, {
   },
   reveal: {
     type: ControlType.Boolean
+  },
+  from: {
+    type: ControlType.SegmentedEnum,
+    options: ["left", "right"]
   }
 });

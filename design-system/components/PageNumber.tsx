@@ -35,7 +35,13 @@ const Text = styled.div`
   transform: translate(-50%, -50%);
 `;
 
-export function PageNumber({ theme, currentPage, totalPage }) {
+export function PageNumber({
+  theme,
+  currentPage,
+  totalPage,
+  onIconLeftClick,
+  onIconRightClick
+}) {
   const selectedTheme = useContext(ThemeContext) || themes[theme];
 
   return (
@@ -45,6 +51,7 @@ export function PageNumber({ theme, currentPage, totalPage }) {
           whileHover={{
             backgroundColor: selectedTheme.color.border
           }}
+          onClick={onIconLeftClick}
         >
           <System.Icon
             icon="ChevronLeft"
@@ -61,6 +68,7 @@ export function PageNumber({ theme, currentPage, totalPage }) {
           whileHover={{
             backgroundColor: selectedTheme.color.border
           }}
+          onClick={onIconRightClick}
         >
           <System.Icon
             icon="ChevronRight"

@@ -24,6 +24,9 @@ export function Description({
   return (
     <SharePropsWithChildren selectedTheme={selectedTheme}>
       <Wrap
+        initial={{
+          opacity: 0
+        }}
         animate={{
           opacity: reveal ? 1 : 0
         }}
