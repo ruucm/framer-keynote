@@ -16,11 +16,9 @@ const Wrap = styled(motion.div)`
 
 const StyledColumn = styled(Column)`
   position: relative;
-  background: pink;
   padding: 0 110px;
 `;
 const Description = styled.div`
-  background: skyblue;
   position: absolute;
   width: 470px;
   height: 500px;
@@ -29,7 +27,6 @@ const Description = styled.div`
   transform: translate(-50%, -50%);
 `;
 const Media = styled.div`
-  background: skyblue;
   position: absolute;
   width: 1178px;
   height: 803px;
@@ -40,7 +37,6 @@ const Media = styled.div`
 `;
 
 const PageNumber = styled.div`
-  background: red;
   height: 44px;
   width: 100%;
   position: absolute;
