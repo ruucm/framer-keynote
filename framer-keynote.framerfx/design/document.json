@@ -911,7 +911,7 @@
         "id" : "xKt6ZizC4",
         "intrinsicHeight" : null,
         "intrinsicWidth" : null,
-        "left" : 4510,
+        "left" : 1666,
         "locked" : false,
         "name" : null,
         "opacity" : 1,
@@ -927,7 +927,7 @@
         "radiusTopRight" : 0,
         "right" : null,
         "rotation" : 0,
-        "top" : 2367,
+        "top" : 3097,
         "visible" : true,
         "width" : 909,
         "widthType" : 0
@@ -964,7 +964,7 @@
         "guidesY" : [
 
         ],
-        "height" : 115.32338308457712,
+        "height" : 115,
         "heightType" : 0,
         "id" : "SvzjWksWi",
         "intrinsicHeight" : 61,
@@ -972,7 +972,7 @@
         "isExternalMaster" : null,
         "isMaster" : false,
         "isTarget" : false,
-        "left" : 846,
+        "left" : -598,
         "locked" : false,
         "name" : null,
         "navigationTarget" : null,
@@ -993,7 +993,7 @@
         "replicaInfo" : null,
         "right" : null,
         "rotation" : 0,
-        "top" : 1396,
+        "top" : 1133,
         "visible" : true,
         "width" : 380,
         "widthType" : 0
@@ -1039,7 +1039,7 @@
         "id" : "Zw9igYFta",
         "intrinsicHeight" : 52,
         "intrinsicWidth" : 380,
-        "left" : -639,
+        "left" : -1169,
         "locked" : false,
         "name" : null,
         "opacity" : 1,
@@ -1055,7 +1055,7 @@
         "radiusTopRight" : 0,
         "right" : null,
         "rotation" : 0,
-        "top" : 660,
+        "top" : 991,
         "visible" : true,
         "width" : 380,
         "widthType" : 0
@@ -1153,7 +1153,7 @@
         "id" : "a5Z3WwnzP",
         "intrinsicHeight" : 52,
         "intrinsicWidth" : 380,
-        "left" : -28,
+        "left" : 1036,
         "locked" : false,
         "name" : null,
         "opacity" : 1,
@@ -1169,7 +1169,7 @@
         "radiusTopRight" : 0,
         "right" : null,
         "rotation" : 0,
-        "top" : 1149,
+        "top" : 1893,
         "visible" : true,
         "width" : 463,
         "widthType" : 0
@@ -1186,7 +1186,20 @@
         "clip" : true,
         "codeComponentIdentifier" : ".\/PageItem.tsx_PageItem",
         "codeComponentProps" : {
-
+          "descLayer" : [
+            {
+              "enabled" : true,
+              "type" : "componentinstance",
+              "value" : "a5Z3WwnzP"
+            }
+          ],
+          "mediaLayer" : [
+            {
+              "enabled" : true,
+              "type" : "componentinstance",
+              "value" : "xKt6ZizC4"
+            }
+          ]
         },
         "codeOverrideEnabled" : false,
         "constraintsLocked" : false,
@@ -1207,7 +1220,7 @@
         "id" : "TWbXuMYVi",
         "intrinsicHeight" : 1080,
         "intrinsicWidth" : 1920,
-        "left" : -517,
+        "left" : -1294,
         "locked" : false,
         "name" : null,
         "opacity" : 1,
@@ -1223,7 +1236,7 @@
         "radiusTopRight" : 0,
         "right" : null,
         "rotation" : 0,
-        "top" : 2498,
+        "top" : 2463,
         "visible" : true,
         "width" : 1920,
         "widthType" : 0

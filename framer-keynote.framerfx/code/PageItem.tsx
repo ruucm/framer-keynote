@@ -11,4 +11,22 @@ PageItem.defaultProps = {
   height: 1080,
   ...System.PageItem.defaultProps
 }; // add same default props from System
-addPropertyControls(PageItem, {});
+const variantTitles = {
+  descLayer: "DesciptionLayer",
+  mediaLayer: "MediaLayer"
+};
+const variantKeys = Object.keys(variantTitles);
+addPropertyControls(PageItem, {
+  ...variantKeys.reduce(
+    (object, key) => ({
+      ...object,
+      [key]: {
+        title: variantTitles[key],
+        type: ControlType.Array,
+        propertyControl: { type: ControlType.ComponentInstance },
+        maxCount: key === "children" || key === "auto" ? 1 : null
+      }
+    }),
+    {}
+  )
+});

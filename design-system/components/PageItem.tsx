@@ -11,15 +11,15 @@ const Wrap = styled(motion.div)`
   background: pink;
 `;
 
-export function PageItem({ theme, title, expanded, children }) {
+export function PageItem({ theme, descLayer, mediaLayer }) {
   const selectedTheme = useContext(ThemeContext) || themes[theme];
 
   return (
     <SharePropsWithChildren selectedTheme={selectedTheme}>
       <Wrap>
         <Row>
-          <Column col={4}>4</Column>
-          <Column col={8}>8</Column>
+          <Column col={4}>{descLayer}</Column>
+          <Column col={8}>{mediaLayer}</Column>
         </Row>
       </Wrap>
     </SharePropsWithChildren>
