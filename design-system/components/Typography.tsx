@@ -14,6 +14,7 @@ const P = styled(motion.p)`
       font-size: 40px;
       letter-spacing: -1.2px;
       color: ${props.theme.color.body};
+      line-height: 44px;
     `}
   ${props =>
     props.type === "Heading3" &&
@@ -31,6 +32,7 @@ const P = styled(motion.p)`
       font-weight: 400;
       font-size: 15px;
       color: ${props.theme.color.body};
+      line-height: 23px;
     `}
   ${props =>
     props.type === "ButtonText" &&

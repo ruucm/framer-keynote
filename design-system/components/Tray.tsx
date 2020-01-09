@@ -30,7 +30,7 @@ const initialHeight = 52;
 export function Tray({ theme, title, expanded, children }) {
   const selectedTheme = useContext(ThemeContext) || themes[theme];
   let expandedHeight = 300;
-  if (children.length)
+  if (children && children.length)
     expandedHeight = children[0].props.height + initialHeight + 15.8;
 
   const wrapAnim = useAnimation();
@@ -77,7 +77,7 @@ export function Tray({ theme, title, expanded, children }) {
           animate={contentAnim}
           transition={selectedTheme.transitions.short}
         >
-          {children}
+          {children ? children : "Add Children"}
         </Content>
       </Wrap>
     </SharePropsWithChildren>
@@ -86,5 +86,5 @@ export function Tray({ theme, title, expanded, children }) {
 Tray.defaultProps = {
   theme: "light",
   title: "Explore new artists and genress",
-  expanded: true
+  expanded: false
 };
