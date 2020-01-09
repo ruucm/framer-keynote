@@ -43,7 +43,7 @@ export function Icon({ icon, color, width, height, ...props }) {
   );
 }
 
-Icons.defaultProps = {
+Icon.defaultProps = {
   icon: "ChevronRight",
   color: "#000"
 };
