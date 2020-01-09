@@ -25,6 +25,7 @@ export function MediaContainer({ content, theme, reveal }) {
           opacity: reveal ? 1 : 0,
           x: reveal ? 0 : "-100%"
         }}
+        transition={selectedTheme.transitions.short}
       >
         {content.length ? content : "add Content"}
       </Wrap>

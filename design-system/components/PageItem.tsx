@@ -32,7 +32,7 @@ const Media = styled.div`
   position: absolute;
   width: 1178px;
   height: 803px;
-  top: calc(50% - 44px);
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 `;
