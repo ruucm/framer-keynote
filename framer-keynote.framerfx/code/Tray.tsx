@@ -7,6 +7,12 @@ export function Tray(props) {
 }
 
 Tray.defaultProps = {
+  width: 380,
+  height: 52,
   ...System.Tray.defaultProps
 }; // add same default props from System
-addPropertyControls(Tray, {});
+addPropertyControls(Tray, {
+  expanded: {
+    type: ControlType.Boolean
+  }
+});

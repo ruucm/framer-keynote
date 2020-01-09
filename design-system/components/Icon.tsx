@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
-import { Chevron } from "../../design-system/assets";
+import * as Icons from "../../design-system/assets";
 
 const Wrap = styled.div`
   ${props =>
@@ -26,13 +26,15 @@ export function Icon({ icon, color, width, height, ...props }) {
       {(() => {
         switch (icon) {
           case "ChevronRight":
-            return <Chevron color={color} />;
+            return <Icons.Chevron color={color} />;
           case "ChevronLeft":
             return (
               <Rotate180>
-                <Chevron color={color} />
+                <Icons.Chevron color={color} />
               </Rotate180>
             );
+          case "Plus":
+            return <Icons.Plus color={color} />;
           default:
             return "Add Vaild Icon Property";
         }
@@ -41,7 +43,7 @@ export function Icon({ icon, color, width, height, ...props }) {
   );
 }
 
-Icon.defaultProps = {
+Icons.defaultProps = {
   icon: "ChevronRight",
   color: "#000"
 };

@@ -21,7 +21,8 @@ export const themes = {
     color: {
       body: "#111",
       link: "#0070c9",
-      background: "#FAFAFA"
+      background: "#FAFAFA",
+      border: "#d8d8d8"
     },
     font,
     breakpoint: {
@@ -36,7 +37,8 @@ export const themes = {
     color: {
       body: "#111",
       link: "#0070c9",
-      background: "#FAFAFA"
+      background: "#FAFAFA",
+      border: "#d8d8d8"
     },
     font,
     breakpoint: {
