@@ -25,6 +25,10 @@ const Description = styled.div`
   top: calc(50% - 44px);
   left: 50%;
   transform: translate(-50%, -50%);
+  @media (max-width: ${props => props.selectedTheme.breakpoint.mobile}px) {
+    width: 80%;
+    height: initial;
+  }
 `;
 const Media = styled.div`
   position: absolute;
@@ -121,7 +125,8 @@ export function MainBridge({ theme, mediaLayer, width, height }) {
             col={8}
             style={{
               width: width,
-              height: height
+              height: height,
+              background: selectedTheme.color.background
             }}
           >
             <Media>
