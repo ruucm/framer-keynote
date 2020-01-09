@@ -1191,6 +1191,7 @@
         "codeComponentIdentifier" : ".\/Description.tsx_Description",
         "codeComponentProps" : {
           "paragraph" : "The songs you had in iTunes are now in the Apple Music app. Look in your library to find the music you purchased from the iTunes Store or saved from Apple Music — organized by artists, albums, and songs.Click Recently Added in the sidebar to browse music you’ve added in the last week and month.",
+          "reveal" : true,
           "subTitle" : "An elevated music experience",
           "title" : "Music",
           "trayTitle" : "Explore new artists and genress"

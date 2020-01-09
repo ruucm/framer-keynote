@@ -11,12 +11,24 @@ const Wrap = styled(motion.div)`
   height: 100%;
 `;
 
-export function Description({ theme, title, subTitle, paragraph, trayTitle }) {
+export function Description({
+  theme,
+  title,
+  subTitle,
+  paragraph,
+  trayTitle,
+  reveal
+}) {
   const selectedTheme = useContext(ThemeContext) || themes[theme];
 
   return (
     <SharePropsWithChildren selectedTheme={selectedTheme}>
-      <Wrap>
+      <Wrap
+        animate={{
+          opacity: reveal ? 1 : 0
+        }}
+        transition={selectedTheme.transitions.short}
+      >
         <System.Typography text={title} customColor color="#d85c8e" />
         <System.Spacing height={6} />
         <System.Typography text={subTitle} />
@@ -40,5 +52,6 @@ Description.defaultProps = {
   subTitle: "An elevated music experience",
   paragraph:
     "The songs you had in iTunes are now in the Apple Music app. Look in your library to find the music you purchased from the iTunes Store or saved from Apple Music — organized by artists, albums, and songs.Click Recently Added in the sidebar to browse music you’ve added in the last week and month.",
-  trayTitle: "Explore new artists and genress"
+  trayTitle: "Explore new artists and genress",
+  reveal: true
 };

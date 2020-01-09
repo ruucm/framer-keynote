@@ -23,5 +23,8 @@ addPropertyControls(Description, {
   },
   trayTitle: {
     type: ControlType.String
+  },
+  reveal: {
+    type: ControlType.Boolean
   }
 });
