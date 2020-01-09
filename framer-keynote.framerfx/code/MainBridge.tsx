@@ -11,4 +11,21 @@ MainBridge.defaultProps = {
   height: 1080,
   ...System.MainBridge.defaultProps
 }; // add same default props from System
-addPropertyControls(MainBridge, {});
+const variantTitles = {
+  mediaLayer: "MediaLayer"
+};
+const variantKeys = Object.keys(variantTitles);
+addPropertyControls(MainBridge, {
+  ...variantKeys.reduce(
+    (object, key) => ({
+      ...object,
+      [key]: {
+        title: variantTitles[key],
+        type: ControlType.Array,
+        propertyControl: { type: ControlType.ComponentInstance },
+        maxCount: key === "children" || key === "auto" ? 1 : null
+      }
+    }),
+    {}
+  )
+});
