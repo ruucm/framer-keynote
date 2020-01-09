@@ -11,4 +11,14 @@ Description.defaultProps = {
   height: 52,
   ...System.Description.defaultProps
 }; // add same default props from System
-addPropertyControls(Description, {});
+addPropertyControls(Description, {
+  title: {
+    type: ControlType.String
+  },
+  subTitle: {
+    type: ControlType.String
+  },
+  paragraph: {
+    type: ControlType.String
+  }
+});

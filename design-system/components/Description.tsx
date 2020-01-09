@@ -7,7 +7,6 @@ import { SharePropsWithChildren } from "../../base/utils/SharePropsWithChildren"
 import * as System from "../../design-system";
 
 const Wrap = styled(motion.div)`
-  background: pink;
   width: 100%;
   height: 100%;
 `;
