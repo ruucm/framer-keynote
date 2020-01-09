@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "framer-motion": "^1.7.0",
+    "markdown": "^0.5.0",
     "ruucm-blocks": "https://github.com/ruucm/ruucm-blocks",
     "ruucm-util": "^0.14.0",
     "styled-components": "^4.4.1"

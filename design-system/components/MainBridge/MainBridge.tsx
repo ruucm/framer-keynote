@@ -8,6 +8,7 @@ import { SharePropsWithChildren } from "../../../base/utils/SharePropsWithChildr
 import * as System from "../../../design-system";
 import { Row, Column } from "ruucm-blocks/layouts";
 import mock from "./mock";
+import { markdown as md } from "markdown";
 
 const Wrap = styled(motion.div)`
   width: 100%;
@@ -53,11 +54,64 @@ const Img = styled.img`
 `;
 const Video = styled.video``;
 
-export function MainBridge({ theme, mediaLayer, width, height }) {
+// var md = require("markdown").markdown
+
+export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
   const selectedTheme = useContext(ThemeContext) || themes[theme];
   const [currentPage, setCurrentPage] = useState(0);
   const [reveal, setReveal] = useState(true);
   const [from, setFrom] = useState("right");
+  const [markdownData, setMarkdownData] = useState(null);
+  const [error, setError] = useState(false);
+
+  const loadContentData = () => {
+    fetch(decodeURIComponent(contentData.replace("/preview", "")), {
+      method: "GET",
+      credentials: "omit",
+      redirect: "follow"
+    })
+      .then(resp => {
+        console.log("contentData", contentData);
+        console.log("resp", resp);
+        if (!resp.ok) {
+          console.error(
+            "There was an error while the fetching Lottie JSON URL"
+          );
+          console.log("Printing failed response...");
+          console.log(resp);
+
+          setError(true);
+          return;
+        }
+        resp
+          .text()
+          .then(result => {
+            console.log("result", result);
+            setMarkdownData(result);
+
+            // parse the markdown into a tree and grab the link references
+            var tree = md.parse(result),
+              refs = tree[1].references;
+
+            console.log("tree", tree);
+            console.log("refs", refs);
+          })
+          .catch(e => {
+            console.error(e);
+            console.log("Could not parse a valid JSON from the Lottie URL");
+            setError(true);
+          });
+      })
+      .catch(e => {
+        setError(true);
+
+        console.error(e);
+      });
+  };
+
+  useEffect(() => {
+    loadContentData();
+  }, [contentData]);
 
   const prevPageAnim = async () => {
     setFrom("right");

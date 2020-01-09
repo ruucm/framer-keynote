@@ -27,5 +27,9 @@ addPropertyControls(MainBridge, {
       }
     }),
     {}
-  )
+  ),
+  contentData: {
+    type: ControlType.File,
+    allowedFileTypes: ["md"]
+  }
 });
