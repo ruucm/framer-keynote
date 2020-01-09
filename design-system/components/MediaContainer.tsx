@@ -12,16 +12,27 @@ const Wrap = styled(motion.div)`
   background: ${props => props.selectedTheme.color.background};
 `;
 
-export function MediaContainer({ content, theme }) {
+export function MediaContainer({ content, theme, reveal }) {
   const selectedTheme = useContext(ThemeContext) || themes[theme];
 
   return (
     <SharePropsWithChildren selectedTheme={selectedTheme}>
-      <Wrap>{content.length ? content : "add Content"}</Wrap>
+      <Wrap
+        initial={{
+          x: "100%"
+        }}
+        animate={{
+          opacity: reveal ? 1 : 0,
+          x: reveal ? 0 : "-100%"
+        }}
+      >
+        {content.length ? content : "add Content"}
+      </Wrap>
     </SharePropsWithChildren>
   );
 }
 MediaContainer.defaultProps = {
   content: null,
-  theme: "light"
+  theme: "light",
+  reveal: true
 };

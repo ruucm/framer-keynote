@@ -12,5 +12,8 @@ MediaContainer.defaultProps = {
 addPropertyControls(MediaContainer, {
   content: {
     type: ControlType.ComponentInstance
+  },
+  reveal: {
+    type: ControlType.Boolean
   }
 });
