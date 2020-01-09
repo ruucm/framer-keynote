@@ -1003,18 +1003,10 @@
         "codeComponentIdentifier" : ".\/PageItem.tsx_PageItem",
         "codeComponentProps" : {
           "descLayer" : [
-            {
-              "enabled" : true,
-              "type" : "componentinstance",
-              "value" : "M33Kl14Dv"
-            }
+
           ],
           "mediaLayer" : [
-            {
-              "enabled" : true,
-              "type" : "componentinstance",
-              "value" : "drw97HhRJ"
-            }
+
           ]
         },
         "codeOverrideEnabled" : false,
@@ -1179,125 +1171,6 @@
         "widthType" : 0
       },
       {
-        "__class" : "CodeComponentNode",
-        "aspectRatio" : null,
-        "bottom" : null,
-        "centerAnchorX" : 0,
-        "centerAnchorY" : 0,
-        "children" : [
-
-        ],
-        "clip" : true,
-        "codeComponentIdentifier" : ".\/Description.tsx_Description",
-        "codeComponentProps" : {
-          "paragraph" : "The songs you had in iTunes are now in the Apple Music app. Look in your library to find the music you purchased from the iTunes Store or saved from Apple Music — organized by artists, albums, and songs.Click Recently Added in the sidebar to browse music you’ve added in the last week and month.",
-          "reveal" : true,
-          "subTitle" : "An elevated music experience",
-          "title" : "Music",
-          "trayTitle" : "Explore new artists and genress"
-        },
-        "codeOverrideEnabled" : false,
-        "constraintsLocked" : false,
-        "deviceType" : null,
-        "exportOptions" : [
-
-        ],
-        "fillColor" : "rgba(255,255,255,1)",
-        "fillEnabled" : false,
-        "fillImage" : null,
-        "fillImageOriginalName" : null,
-        "fillImagePixelHeight" : null,
-        "fillImagePixelWidth" : null,
-        "fillImageResize" : "fill",
-        "fillType" : "color",
-        "height" : 500,
-        "heightType" : 0,
-        "id" : "M33Kl14Dv",
-        "intrinsicHeight" : 500,
-        "intrinsicWidth" : 470,
-        "left" : 674,
-        "locked" : false,
-        "name" : null,
-        "opacity" : 1,
-        "originalid" : null,
-        "parentid" : "jLUPs9gNN",
-        "previewSettings" : null,
-        "radius" : 0,
-        "radiusBottomLeft" : 0,
-        "radiusBottomRight" : 0,
-        "radiusIsRelative" : false,
-        "radiusPerCorner" : false,
-        "radiusTopLeft" : 0,
-        "radiusTopRight" : 0,
-        "right" : null,
-        "rotation" : 0,
-        "top" : 2005,
-        "visible" : true,
-        "width" : 470,
-        "widthType" : 0
-      },
-      {
-        "__class" : "CodeComponentNode",
-        "aspectRatio" : null,
-        "bottom" : null,
-        "centerAnchorX" : 0,
-        "centerAnchorY" : 0,
-        "children" : [
-
-        ],
-        "clip" : true,
-        "codeComponentIdentifier" : ".\/MediaContainer.tsx_MediaContainer",
-        "codeComponentProps" : {
-          "content" : [
-            {
-              "enabled" : true,
-              "type" : "componentinstance",
-              "value" : "tDhapq9wv"
-            }
-          ],
-          "reveal" : true
-        },
-        "codeOverrideEnabled" : false,
-        "constraintsLocked" : false,
-        "deviceType" : null,
-        "exportOptions" : [
-
-        ],
-        "fillColor" : "rgba(255,255,255,1)",
-        "fillEnabled" : false,
-        "fillImage" : null,
-        "fillImageOriginalName" : null,
-        "fillImagePixelHeight" : null,
-        "fillImagePixelWidth" : null,
-        "fillImageResize" : "fill",
-        "fillType" : "color",
-        "height" : 803,
-        "heightType" : 0,
-        "id" : "drw97HhRJ",
-        "intrinsicHeight" : 803,
-        "intrinsicWidth" : 1178,
-        "left" : 634,
-        "locked" : false,
-        "name" : null,
-        "opacity" : 1,
-        "originalid" : null,
-        "parentid" : "jLUPs9gNN",
-        "previewSettings" : null,
-        "radius" : 0,
-        "radiusBottomLeft" : 0,
-        "radiusBottomRight" : 0,
-        "radiusIsRelative" : false,
-        "radiusPerCorner" : false,
-        "radiusTopLeft" : 0,
-        "radiusTopRight" : 0,
-        "right" : null,
-        "rotation" : 0,
-        "top" : 3438,
-        "visible" : true,
-        "width" : 1178,
-        "widthType" : 0
-      },
-      {
         "__class" : "FrameNode",
         "aspectRatio" : null,
         "blendingEnabled" : 0,
@@ -1403,7 +1276,7 @@
         "isExternalMaster" : null,
         "isMaster" : false,
         "isTarget" : false,
-        "left" : 3052,
+        "left" : 977,
         "locked" : false,
         "name" : null,
         "navigationTarget" : null,
@@ -1424,7 +1297,7 @@
         "replicaInfo" : null,
         "right" : null,
         "rotation" : 0,
-        "top" : 4174,
+        "top" : 2698,
         "visible" : true,
         "width" : 1178,
         "widthType" : 0

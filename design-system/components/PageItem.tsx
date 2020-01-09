@@ -58,7 +58,9 @@ export function PageItem({ theme, descLayer, mediaLayer, width, height }) {
               height: height
             }}
           >
-            <Description>{descLayer}</Description>
+            <Description>
+              <System.Description />
+            </Description>
             <PageNumber>
               <System.PageNumber />
             </PageNumber>
@@ -70,7 +72,9 @@ export function PageItem({ theme, descLayer, mediaLayer, width, height }) {
               height: height
             }}
           >
-            <Media>{mediaLayer}</Media>
+            <Media>
+              <System.MediaContainer content={mediaLayer} />
+            </Media>
           </Column>
         </Row>
       </Wrap>

@@ -12,7 +12,6 @@ PageItem.defaultProps = {
   ...System.PageItem.defaultProps
 }; // add same default props from System
 const variantTitles = {
-  descLayer: "DesciptionLayer",
   mediaLayer: "MediaLayer"
 };
 const variantKeys = Object.keys(variantTitles);

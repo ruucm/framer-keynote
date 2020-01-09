@@ -27,7 +27,7 @@ export function MediaContainer({ content, theme, reveal }) {
         }}
         transition={selectedTheme.transitions.short}
       >
-        {content.length ? content : "add Content"}
+        {content && content.length ? content : "add Content"}
       </Wrap>
     </SharePropsWithChildren>
   );
