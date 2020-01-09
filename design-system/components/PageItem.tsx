@@ -40,14 +40,14 @@ const PageNumber = styled.div`
   height: 44px;
   width: 100%;
   position: absolute;
-  bottom: 0;
+  bottom: 15px;
 `;
 const Img = styled.img`
   width: 100%;
   height: 100%;
   object-fit: contain;
 `;
-const Video = styled.img``;
+const Video = styled.video``;
 
 export function PageItem({ theme, mediaLayer, width, height }) {
   const selectedTheme = useContext(ThemeContext) || themes[theme];
@@ -71,12 +71,7 @@ export function PageItem({ theme, mediaLayer, width, height }) {
   };
 
   const MediaLayer = ({ type }) => {
-    if (type === "image")
-      return (
-        <div>
-          <Img src={mock[currentPage].mediaUrl} />
-        </div>
-      );
+    if (type === "image") return <Img src={mock[currentPage].mediaUrl} />;
     else if (type === "video")
       return (
         <div>
