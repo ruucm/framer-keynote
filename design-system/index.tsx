@@ -7,3 +7,4 @@ export { Description } from "./components/Description";
 export { Spacing } from "./components/Spacing";
 export { PageItem } from "./components/PageItem";
 export { PageNumber } from "./components/PageNumber";
+export { MainBridge } from "./components/MainBridge/MainBridge";

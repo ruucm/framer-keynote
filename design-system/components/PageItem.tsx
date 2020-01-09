@@ -6,7 +6,6 @@ import { themes } from "../../base";
 import { SharePropsWithChildren } from "../../base/utils/SharePropsWithChildren";
 import * as System from "../../design-system";
 import { Row, Column } from "ruucm-blocks/layouts";
-import { Frame, Stack } from "framer";
 
 const Wrap = styled(motion.div)`
   width: 100%;
