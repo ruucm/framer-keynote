@@ -10,4 +10,13 @@ PageNumber.defaultProps = {
   ...System.PageNumber.defaultProps
 }; // add same default props from System
 
-addPropertyControls(PageNumber, {});
+addPropertyControls(PageNumber, {
+  currentPage: {
+    type: ControlType.Number,
+    displayStepper: true
+  },
+  totalPage: {
+    type: ControlType.Number,
+    displayStepper: true
+  }
+});
