@@ -20,5 +20,8 @@ addPropertyControls(Description, {
   },
   paragraph: {
     type: ControlType.String
+  },
+  trayTitle: {
+    type: ControlType.String
   }
 });
