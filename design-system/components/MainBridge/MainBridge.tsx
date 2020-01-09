@@ -3,7 +3,7 @@ import { useContext, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import styled, { css, ThemeContext } from "styled-components";
 import { themes } from "../../../base";
-import { sleep } from "../../../base/utils";
+import { sleep, isClient, wem } from "../../../base/utils";
 import { SharePropsWithChildren } from "../../../base/utils/SharePropsWithChildren";
 import * as System from "../../../design-system";
 import { Row, Column } from "ruucm-blocks/layouts";
@@ -20,8 +20,8 @@ const StyledColumn = styled(Column)`
 `;
 const Description = styled.div`
   position: absolute;
-  width: 470px;
-  height: 500px;
+  width: ${wem(470)}vw;
+  height: ${wem(500)}vw;
   top: calc(50% - 44px);
   left: 50%;
   transform: translate(-50%, -50%);
@@ -32,8 +32,8 @@ const Description = styled.div`
 `;
 const Media = styled.div`
   position: absolute;
-  width: 1178px;
-  height: 803px;
+  width: ${wem(1178)}vw;
+  height: ${wem(803)}vw;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -94,8 +94,8 @@ export function MainBridge({ theme, mediaLayer, width, height }) {
           <StyledColumn
             col={4}
             style={{
-              width: width,
-              height: height
+              width: isClient && window.innerWidth,
+              height: isClient && window.innerHeight
             }}
           >
             <Description>

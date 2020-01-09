@@ -1349,7 +1349,7 @@
           "__class" : "PreviewSettings",
           "bezel" : false,
           "deviceType" : null,
-          "responsive" : false,
+          "responsive" : true,
           "rotate" : false,
           "touch" : false,
           "zoom" : -1

@@ -118,3 +118,8 @@ export const getCurrentPlayBack = time => {
   if (sec < 10) sec = "0" + sec;
   return min + ":" + sec;
 };
+
+export const wem = pxSize => {
+  const baseScreenSize = 1920;
+  return (pxSize / baseScreenSize) * 100;
+};
