@@ -161,22 +161,21 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
 
   const MediaLayer = ({ type }) => {
     let fileName = markdownData[currentPage][4][1][1]["href"];
+    const [loaded, currentSrc] = useProgressiveImage({
+      src: "/assets/images/" + fileName,
+      fallbackSrc: "/assets/images/minimized/" + fileName
+    });
     if (type === "image")
       return (
         <div
           style={{
-            background: selectedTheme.color.secondary,
+            background: loaded ? "transparent" : selectedTheme.color.secondary,
             minHeight: 500,
             position: "relative",
             borderRadius: 20
           }}
         >
-          <Img
-            src={useProgressiveImage({
-              src: "/assets/images/" + fileName,
-              fallbackSrc: "/assets/images/minimized/" + fileName
-            })}
-          />
+          {currentSrc && <Img src={currentSrc} />}
         </div>
       );
     else if (type === "video")

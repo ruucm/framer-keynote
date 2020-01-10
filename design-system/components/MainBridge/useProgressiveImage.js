@@ -22,11 +22,12 @@ export function useProgressiveImage({ src, fallbackSrc }) {
     };
     fallbackImage.onload = () => {
       dispatch({ type: "fallback image loaded", src: fallbackSrc });
+      setLoaded(true);
     };
 
     mainImage.src = src;
     fallbackImage.src = fallbackSrc;
   }, [src, fallbackSrc]);
 
-  return currentSrc;
+  return [loaded, currentSrc];
 }
