@@ -54,8 +54,6 @@ const Img = styled.img`
 `;
 const Video = styled.video``;
 
-// var md = require("markdown").markdown
-
 export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
   const selectedTheme = useContext(ThemeContext) || themes[theme];
   const [currentPage, setCurrentPage] = useState(0);
@@ -90,11 +88,22 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
             setMarkdownData(result);
 
             // parse the markdown into a tree and grab the link references
-            var tree = md.parse(result),
-              refs = tree[1].references;
+            var tree = md.parse(result);
 
             console.log("tree", tree);
-            console.log("refs", refs);
+
+            let res = [[]];
+            let resIndex = 0;
+            for (let i = 1; i < tree.length; i++) {
+              const element = tree[i];
+              if (element[0] === "hr") {
+                resIndex++;
+                res[resIndex] = [];
+              } else {
+                res[resIndex].push(element);
+              }
+            }
+            console.log("res", res);
           })
           .catch(e => {
             console.error(e);
