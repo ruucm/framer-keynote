@@ -71,7 +71,14 @@ export function MediaContainer({ content, theme, reveal, from }) {
 
   return (
     <SharePropsWithChildren selectedTheme={selectedTheme}>
-      <Wrap animate={anim} transition={selectedTheme.transitions.long}>
+      <Wrap
+        animate={anim}
+        initial={{
+          x: "-100%",
+          opacity: 0
+        }}
+        transition={selectedTheme.transitions.long}
+      >
         {content && content.length ? content : "add Content"}
       </Wrap>
     </SharePropsWithChildren>

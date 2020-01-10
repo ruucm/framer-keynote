@@ -30,28 +30,10 @@ trayParagraph3
 ---
 
 #descTitle4
-##-
-
--
-
-##-
-
--
-
-[bigHeader](dummy-0.jpg)
 
 ---
 
 #descTitle5
-##-
-
--
-
-##-
-
--
-
-[bigHeader](dummy-1.jpg)
 
 ---
 

@@ -68,10 +68,14 @@ export function MainBridge({
   const [markdownData, setMarkdownData] = useState(mock);
   const [error, setError] = useState(false);
 
-  const nextPageData = markdownData && markdownData[currentPage];
-  let fileName = nextPageData && nextPageData[5][1][1]["href"];
-  let fileType = nextPageData && nextPageData[5][1][2];
-  const hasMedia = fileType === "image" || fileType === "video";
+  const data = markdownData && markdownData[currentPage];
+  console.log("data", data);
+  const hasMedia = data.length > 1;
+  let fileName, fileType;
+  if (hasMedia) {
+    fileName = data && data[5][1][1]["href"];
+    fileType = data && data[5][1][2];
+  }
 
   const prevPageAnim = async () => {
     setFrom("right");
