@@ -15,7 +15,7 @@ const Video = styled.video`
   transform: translate(-50%, -50%);
 `;
 
-export function MediaLayer({ theme, type, fileName }) {
+export function MediaLayer({ theme, type, fileName, designCompLayer }) {
   const selectedTheme = useContext(ThemeContext) || themes[theme];
   console.log("fileName - MediaLayer", fileName);
   return (
@@ -40,6 +40,20 @@ export function MediaLayer({ theme, type, fileName }) {
                 <source src={"/assets/videos/" + fileName} type="video/mp4" />
                 Your browser does not support the video tag.
               </Video>
+            );
+          case "designComp":
+            return (
+              <div
+                style={{
+                  width: "100%",
+                  height: "100%"
+                }}
+              >
+                {React.cloneElement(designCompLayer[Number(fileName)], {
+                  width: "100%",
+                  height: "100%"
+                })}
+              </div>
             );
           default:
             return "Add Vaild Type";

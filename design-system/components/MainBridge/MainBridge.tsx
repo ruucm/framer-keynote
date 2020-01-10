@@ -208,6 +208,7 @@ export function MainBridge({
                       key={0}
                       type={fileType}
                       fileName={fileName}
+                      designCompLayer={designCompLayer}
                     />
                   ]}
                   reveal={reveal}
