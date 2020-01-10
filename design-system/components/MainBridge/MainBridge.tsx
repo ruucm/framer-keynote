@@ -9,7 +9,6 @@ import * as System from "../../../design-system";
 import { Row, Column } from "ruucm-blocks/layouts";
 // import mock from "./mock2";
 import { markdown as md } from "markdown";
-import { useKeyPress } from "./use-keypress";
 import { useProgressiveImage } from "./useProgressiveImage";
 
 const Wrap = styled(motion.div)`
@@ -172,7 +171,7 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
             background: loaded ? "transparent" : selectedTheme.color.secondary,
             height: "100%",
             position: "relative",
-            borderRadius: 10,
+            borderRadius: 10
             // boxShadow: "10px 20px 30px 10px " + selectedTheme.color.secondary
           }}
         >
@@ -274,6 +273,13 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
                     text={markdownData[currentPage][0][2]}
                   />
                 </Heading1>
+                <PageNumber>
+                  <System.PageNumber
+                    currentPage={currentPage}
+                    onIconLeftClick={goPrevPage}
+                    onIconRightClick={goNextPage}
+                  />
+                </PageNumber>
               </StyledColumn>
             </Row>
           )}

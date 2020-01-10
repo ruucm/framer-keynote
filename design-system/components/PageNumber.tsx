@@ -48,12 +48,10 @@ export function PageNumber({
   const ArrowLeftPress = useKeyPress("ArrowLeft");
 
   useEffect(() => {
-    // if (ArrowRightPress) goNextPage();
-    console.log("ArrowRightPress!");
+    if (ArrowRightPress) onIconRightClick();
   }, [ArrowRightPress]);
   useEffect(() => {
-    // if (ArrowLeftPress) goPrevPage();
-    console.log("ArrowLeftPress!");
+    if (ArrowLeftPress) onIconLeftClick();
   }, [ArrowLeftPress]);
 
   return (
