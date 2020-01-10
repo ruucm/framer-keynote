@@ -10,11 +10,11 @@ function reducer(currentSrc, action) {
   return currentSrc;
 }
 
-export function useProgressiveImage({ src, fallbackSrc, fileType, hasMedia }) {
+export function useProgressiveImage({ src, fallbackSrc, fileType }) {
   const [currentSrc, dispatch] = useReducer(reducer);
   const [mainLoaded, setLoaded] = useState(false);
   useEffect(() => {
-    if (fileType === "image" && hasMedia) {
+    if (fileType === "image" || fileType === "bigHeader") {
       const mainImage = new Image();
       const fallbackImage = new Image();
 

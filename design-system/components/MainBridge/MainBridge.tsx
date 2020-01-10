@@ -72,20 +72,20 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
   const [markdownData, setMarkdownData] = useState(mock);
   const [error, setError] = useState(false);
 
-  const hasMedia = markdownData && markdownData[currentImage].length > 1;
-  const nextPageData = markdownData && hasMedia && markdownData[currentImage];
+  const nextPageData = markdownData && markdownData[currentImage];
+  let fileName = nextPageData && nextPageData[5][1][1]["href"];
+  let fileType = nextPageData && nextPageData[5][1][2];
+  const hasMedia = fileType === "image" || fileType === "video";
 
-  let fileName = nextPageData[5][1][1]["href"];
-  let fileType = nextPageData[5][1][2];
   const [mainLoaded, currentSrc] = useProgressiveImage({
     src: "/assets/images/" + fileName,
     fallbackSrc: "/assets/images/minimized/" + fileName,
-    fileType: fileType,
-    hasMedia: hasMedia
+    fileType: fileType
   });
 
   useEffect(() => {
     const loadNext = () => {
+      console.log("loadNext!!!");
       setCurrentPage(currentImage);
       currentImage > currentPage ? nextPageAnimEnd() : prevPageAnimEnd(); // make image animation end after mainImage loaded
     };
@@ -212,80 +212,78 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
 
   return (
     <SharePropsWithChildren selectedTheme={selectedTheme}>
-      {markdownData && (
-        <Wrap>
-          {hasMedia ? (
-            <Row>
-              <StyledColumn
-                col={4}
-                style={{
-                  width: width,
-                  height: height
-                }}
-              >
-                <Description>
-                  <System.Description
-                    title={markdownData[currentPage][0][2]}
-                    subTitle={markdownData[currentPage][1][2]}
-                    paragraph={markdownData[currentPage][2][1]}
-                    trayTitle={markdownData[currentPage][3][2]}
-                    trayParagraph={markdownData[currentPage][4][1]}
-                    reveal={reveal}
-                  />
-                </Description>
-                <PageNumber>
-                  <System.PageNumber
-                    currentPage={currentPage}
-                    onIconLeftClick={goPrevPage}
-                    onIconRightClick={goNextPage}
-                  />
-                </PageNumber>
-              </StyledColumn>
-              <Column
-                col={8}
-                style={{
-                  width: width,
-                  height: height,
-                  background: selectedTheme.color.background,
-                  overflow: "hidden"
-                }}
-              >
-                <Media>
-                  <System.MediaContainer
-                    content={[<MediaLayer key={0} type={fileType} />]}
-                    reveal={reveal}
-                    from={from}
-                  />
-                </Media>
-              </Column>
-            </Row>
-          ) : (
-            <Row>
-              <StyledColumn
-                col={12}
-                style={{
-                  width: width,
-                  height: height
-                }}
-              >
-                <Heading1>
-                  <System.Typography
-                    type="Heading1"
-                    text={markdownData[currentPage][0][2]}
-                  />
-                </Heading1>
-                <PageNumber>
-                  <System.PageNumber
-                    currentPage={currentPage}
-                    onIconLeftClick={goPrevPage}
-                    onIconRightClick={goNextPage}
-                  />
-                </PageNumber>
-              </StyledColumn>
-            </Row>
-          )}
-        </Wrap>
-      )}
+      <Wrap>
+        {hasMedia ? (
+          <Row>
+            <StyledColumn
+              col={4}
+              style={{
+                width: width,
+                height: height
+              }}
+            >
+              <Description>
+                <System.Description
+                  title={markdownData[currentPage][0][2]}
+                  subTitle={markdownData[currentPage][1][2]}
+                  paragraph={markdownData[currentPage][2][1]}
+                  trayTitle={markdownData[currentPage][3][2]}
+                  trayParagraph={markdownData[currentPage][4][1]}
+                  reveal={reveal}
+                />
+              </Description>
+              <PageNumber>
+                <System.PageNumber
+                  currentPage={currentPage}
+                  onIconLeftClick={goPrevPage}
+                  onIconRightClick={goNextPage}
+                />
+              </PageNumber>
+            </StyledColumn>
+            <Column
+              col={8}
+              style={{
+                width: width,
+                height: height,
+                background: selectedTheme.color.background,
+                overflow: "hidden"
+              }}
+            >
+              <Media>
+                <System.MediaContainer
+                  content={[<MediaLayer key={0} type={fileType} />]}
+                  reveal={reveal}
+                  from={from}
+                />
+              </Media>
+            </Column>
+          </Row>
+        ) : (
+          <Row>
+            <StyledColumn
+              col={12}
+              style={{
+                width: width,
+                height: height
+              }}
+            >
+              <Heading1>
+                <System.Typography
+                  type="Heading1"
+                  text={markdownData[currentPage][0][2]}
+                />
+              </Heading1>
+              <PageNumber>
+                <System.PageNumber
+                  currentPage={currentPage}
+                  onIconLeftClick={goPrevPage}
+                  onIconRightClick={goNextPage}
+                />
+              </PageNumber>
+            </StyledColumn>
+          </Row>
+        )}
+      </Wrap>
     </SharePropsWithChildren>
   );
 }
