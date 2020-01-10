@@ -62,14 +62,25 @@ const Img = styled.img`
 `;
 const Video = styled.video``;
 
-export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
-  const selectedTheme = useContext(ThemeContext) || themes[theme];
-  const [currentPage, setCurrentPage] = useState(0);
-  const [reveal, setReveal] = useState(true);
+const MainContent = ({ markdownData, width, height, selectedTheme }) => {
   const [from, setFrom] = useState("right");
-  const [markdownData, setMarkdownData] = useState(null);
-  const [error, setError] = useState(false);
+  const [reveal, setReveal] = useState(true);
+  const prevPageAnim = async () => {
+    setFrom("right");
+    setReveal(false);
+    await sleep(selectedTheme.transitions.long.duration);
+    setFrom("left");
+    setReveal(true);
+  };
+  const nextPageAnim = async () => {
+    setFrom("left");
+    setReveal(false);
+    await sleep(selectedTheme.transitions.long.duration);
+    setFrom("right");
+    setReveal(true);
+  };
 
+  const [currentPage, setCurrentPage] = useState(0);
   const goPrevPage = async () => {
     if (currentPage >= 1) {
       await prevPageAnim();
@@ -84,6 +95,108 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
   };
 
   console.log("currentPage", currentPage);
+
+  const MediaLayer = ({ type }) => {
+    let fileName = markdownData[currentPage][4][1][1]["href"];
+    if (type === "image")
+      return (
+        <Img
+          src={useProgressiveImage({
+            src: "/assets/images/" + fileName,
+            fallbackSrc: "/assets/images/minimized/" + fileName
+          })}
+        />
+      );
+    else if (type === "video")
+      return (
+        <div>
+          <Video width="320" height="240" controls>
+            <source
+              src={markdownData[currentPage][4][1][1]["href"]}
+              type="video/mp4"
+            />
+            Your browser does not support the video tag.
+          </Video>
+        </div>
+      );
+  };
+
+  return (
+    <SharePropsWithChildren selectedTheme={selectedTheme}>
+      {markdownData[currentPage].length > 1 ? (
+        <Row>
+          <StyledColumn
+            col={4}
+            style={{
+              width: width,
+              height: height
+            }}
+          >
+            <Description>
+              <System.Description
+                title={markdownData[currentPage][0][2]}
+                subTitle={markdownData[currentPage][1][2]}
+                paragraph={markdownData[currentPage][2][1]}
+                trayTitle={markdownData[currentPage][3][2]}
+                reveal={reveal}
+              />
+            </Description>
+            <PageNumber>
+              <System.PageNumber
+                currentPage={currentPage}
+                onIconLeftClick={goPrevPage}
+                onIconRightClick={goNextPage}
+              />
+            </PageNumber>
+          </StyledColumn>
+          <Column
+            col={8}
+            style={{
+              width: width,
+              height: height,
+              background: selectedTheme.color.background
+            }}
+          >
+            <Media>
+              <System.MediaContainer
+                content={[
+                  <MediaLayer
+                    key={0}
+                    type={markdownData[currentPage][4][1][2]}
+                  />
+                ]}
+                reveal={reveal}
+                from={from}
+              />
+            </Media>
+          </Column>
+        </Row>
+      ) : (
+        <Row>
+          <StyledColumn
+            col={12}
+            style={{
+              width: width,
+              height: height
+            }}
+          >
+            <Heading1>
+              <System.Typography
+                type="Heading1"
+                text={markdownData[currentPage][0][2]}
+              />
+            </Heading1>
+          </StyledColumn>
+        </Row>
+      )}
+    </SharePropsWithChildren>
+  );
+};
+
+export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
+  const selectedTheme = useContext(ThemeContext) || themes[theme];
+  const [markdownData, setMarkdownData] = useState(null);
+  const [error, setError] = useState(false);
 
   const loadContentData = () => {
     fetch(decodeURIComponent(contentData.replace("/preview", "")), {
@@ -141,133 +254,34 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
     loadContentData();
   }, [contentData]);
 
-  const prevPageAnim = async () => {
-    setFrom("right");
-    setReveal(false);
-    await sleep(selectedTheme.transitions.long.duration);
-    setFrom("left");
-    setReveal(true);
-  };
-  const nextPageAnim = async () => {
-    setFrom("left");
-    setReveal(false);
-    await sleep(selectedTheme.transitions.long.duration);
-    setFrom("right");
-    setReveal(true);
-  };
-
-  const MediaLayer = ({ type }) => {
-    let fileName = markdownData[currentPage][4][1][1]["href"];
-    if (type === "image")
-      return (
-        <Img
-          src={useProgressiveImage({
-            src: "/assets/images/" + fileName,
-            fallbackSrc: "/assets/images/minimized/" + fileName
-          })}
-        />
-      );
-    else if (type === "video")
-      return (
-        <div>
-          <Video width="320" height="240" controls>
-            <source
-              src={markdownData[currentPage][4][1][1]["href"]}
-              type="video/mp4"
-            />
-            Your browser does not support the video tag.
-          </Video>
-        </div>
-      );
-  };
-
   return (
-    <SharePropsWithChildren selectedTheme={selectedTheme}>
-      {markdownData && (
-        <Wrap>
-          {markdownData.map((data, id) => {
-            console.log("data", data);
-            return data[4] ? (
-              <img
-                style={{
-                  position: "absolute",
-                  zIndex: -1
-                }}
-                src={"/assets/images/" + data[4][1][1]["href"]}
-              />
-            ) : (
-              ""
-            );
-          })}
-          {markdownData[currentPage].length > 1 ? (
-            <Row>
-              <StyledColumn
-                col={4}
-                style={{
-                  width: width,
-                  height: height
-                }}
-              >
-                <Description>
-                  <System.Description
-                    title={markdownData[currentPage][0][2]}
-                    subTitle={markdownData[currentPage][1][2]}
-                    paragraph={markdownData[currentPage][2][1]}
-                    trayTitle={markdownData[currentPage][3][2]}
-                    reveal={reveal}
-                  />
-                </Description>
-                <PageNumber>
-                  <System.PageNumber
-                    currentPage={currentPage}
-                    onIconLeftClick={goPrevPage}
-                    onIconRightClick={goNextPage}
-                  />
-                </PageNumber>
-              </StyledColumn>
-              <Column
-                col={8}
-                style={{
-                  width: width,
-                  height: height,
-                  background: selectedTheme.color.background
-                }}
-              >
-                <Media>
-                  <System.MediaContainer
-                    content={[
-                      <MediaLayer
-                        key={0}
-                        type={markdownData[currentPage][4][1][2]}
-                      />
-                    ]}
-                    reveal={reveal}
-                    from={from}
-                  />
-                </Media>
-              </Column>
-            </Row>
+    markdownData && (
+      <Wrap>
+        {markdownData.map((data, id) => {
+          console.log("data", data);
+          return data[4] ? (
+            <img
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: 100,
+                height: 100
+              }}
+              src={"/assets/images/" + data[4][1][1]["href"]}
+            />
           ) : (
-            <Row>
-              <StyledColumn
-                col={12}
-                style={{
-                  width: width,
-                  height: height
-                }}
-              >
-                <Heading1>
-                  <System.Typography
-                    type="Heading1"
-                    text={markdownData[currentPage][0][2]}
-                  />
-                </Heading1>
-              </StyledColumn>
-            </Row>
-          )}
-        </Wrap>
-      )}
-    </SharePropsWithChildren>
+            ""
+          );
+        })}
+        <MainContent
+          markdownData={markdownData}
+          width={width}
+          height={height}
+          selectedTheme={selectedTheme}
+        />
+      </Wrap>
+    )
   );
 }
 MainBridge.defaultProps = {
