@@ -35,14 +35,7 @@ export function Tray({ theme, title, expanded, children }) {
     expandedHeight = children[0].props.height + initialHeight + 15.8;
 
   const [expandedState, setExpandedState] = useState(false);
-
-  useEffect(() => {
-    // const autoExpand = async () => {
-    //   await sleep(1)
-
-    // }
-    setExpandedState(expanded);
-  }, [expanded]);
+  useEffect(() => setExpandedState(false), [title])
 
   const wrapAnim = useAnimation();
   const iconAnim = useAnimation();
@@ -60,14 +53,23 @@ export function Tray({ theme, title, expanded, children }) {
       });
     };
     const unexpand = async () => {
-      await contentAnim.start({
-        opacity: 0
+       contentAnim.start({
+        opacity: 0,
+        transition: {
+          duration: 0
+        }
       });
       wrapAnim.start({
-        height: initialHeight
+        height: initialHeight,
+        transition: {
+          duration: 0
+        }
       });
       iconAnim.start({
-        rotate: 0
+        rotate: 0,
+        transition: {
+          duration: 0
+        }
       });
     };
     if (expandedState) expand();

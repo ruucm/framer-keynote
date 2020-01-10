@@ -17,6 +17,7 @@ export function Description({
   subTitle,
   paragraph,
   trayTitle,
+  trayParagraph,
   reveal
 }) {
   const selectedTheme = useContext(ThemeContext) || themes[theme];
@@ -43,7 +44,9 @@ export function Description({
             position: "relative"
           }}
         >
-          <System.Tray title={trayTitle} />
+          <System.Tray title={trayTitle}>
+            <System.TrayContent text={trayParagraph} height={330} />
+          </System.Tray>
         </div>
       </Wrap>
     </SharePropsWithChildren>

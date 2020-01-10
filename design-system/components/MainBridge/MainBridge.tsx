@@ -74,9 +74,9 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
 
   const hasMedia = markdownData && markdownData[currentImage].length > 1;
   let fileName =
-    markdownData && hasMedia && markdownData[currentImage][4][1][1]["href"];
+    markdownData && hasMedia && markdownData[currentImage][5][1][1]["href"];
   let fileType =
-    markdownData && hasMedia && markdownData[currentImage][4][1][2];
+    markdownData && hasMedia && markdownData[currentImage][5][1][2];
   const [mainLoaded, currentSrc] = useProgressiveImage({
     src: "/assets/images/" + fileName,
     fallbackSrc: "/assets/images/minimized/" + fileName,
@@ -229,6 +229,7 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
                     subTitle={markdownData[currentPage][1][2]}
                     paragraph={markdownData[currentPage][2][1]}
                     trayTitle={markdownData[currentPage][3][2]}
+                    trayParagraph={markdownData[currentPage][4][1]}
                     reveal={reveal}
                   />
                 </Description>
