@@ -196,20 +196,6 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
     <SharePropsWithChildren selectedTheme={selectedTheme}>
       {markdownData && (
         <Wrap>
-          {markdownData.map((data, id) => {
-            console.log("data", data);
-            return data[4] ? (
-              <img
-                style={{
-                  position: "absolute",
-                  zIndex: -1
-                }}
-                src={"/assets/images/" + data[4][1][1]["href"]}
-              />
-            ) : (
-              ""
-            );
-          })}
           {markdownData[currentPage].length > 1 ? (
             <Row>
               <StyledColumn
