@@ -85,14 +85,8 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
       setCurrentPage(currentImage);
       currentImage > currentPage ? nextPageAnimEnd() : prevPageAnimEnd(); // make image animation end after mainImage loaded
     };
-    const load = async () => {
-      if (fileType === "image") mainLoaded && loadNext();
-      else {
-        await sleep(selectedTheme.transitions.long);
-        loadNext();
-      }
-    };
-    load();
+    if (fileType === "image") mainLoaded && loadNext();
+    else loadNext();
   }, [mainLoaded]);
 
   const goPrevPage = async () => {
