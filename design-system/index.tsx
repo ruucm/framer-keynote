@@ -8,3 +8,4 @@ export { Description } from "./components/Description";
 export { Spacing } from "./components/Spacing";
 export { PageNumber } from "./components/PageNumber";
 export { MainBridge } from "./components/MainBridge/MainBridge";
+export { MediaLayer } from "./components/MainBridge/MediaLayer";

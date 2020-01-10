@@ -190,41 +190,6 @@ export function MainBridge({
     setReveal(true);
   };
 
-  const MediaLayer = ({ type }) => {
-    if (type === "image")
-      return (
-        <div
-          style={{
-            // background: mainLoaded
-            //   ? "center / cover no-repeat url(" + currentSrc + ")"
-            //   : selectedTheme.color.secondary,
-            background: "center / cover no-repeat url(" + currentSrc + ")",
-            backgroundColor: selectedTheme.color.secondary,
-            height: "100%",
-            position: "relative"
-          }}
-        />
-      );
-    else if (type === "video")
-      return (
-        <div
-          style={{
-            height: "100%",
-            position: "relative"
-          }}
-        >
-          {designCompLayer}
-        </div>
-        // <Video controls>
-        //   <source
-        //     src={markdownData[currentPage][5][1][1]["href"]}
-        //     type="video/mp4"
-        //   />
-        //   Your browser does not support the video tag.
-        // </Video>
-      );
-  };
-
   return (
     <SharePropsWithChildren selectedTheme={selectedTheme}>
       <Wrap>
@@ -266,7 +231,14 @@ export function MainBridge({
             >
               <Media>
                 <System.MediaContainer
-                  content={[<MediaLayer key={0} type={fileType} />]}
+                  content={[
+                    <System.MediaLayer
+                      key={0}
+                      type={fileType}
+                      fileName={fileName}
+                      currentPage={currentPage}
+                    />
+                  ]}
                   reveal={reveal}
                   from={from}
                 />
