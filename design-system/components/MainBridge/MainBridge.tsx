@@ -7,7 +7,7 @@ import { sleep, isClient, wem } from "../../../base/utils";
 import { SharePropsWithChildren } from "../../../base/utils/SharePropsWithChildren";
 import * as System from "../../../design-system";
 import { Row, Column } from "ruucm-blocks/layouts";
-// import mock from "./mock2";
+import mock from "./mock2";
 import { markdown as md } from "markdown";
 import { useProgressiveImage } from "./useProgressiveImage";
 
@@ -69,14 +69,14 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
   const [currentImage, setCurrentImage] = useState(0);
   const [reveal, setReveal] = useState(true);
   const [from, setFrom] = useState("right");
-  const [markdownData, setMarkdownData] = useState(null);
+  const [markdownData, setMarkdownData] = useState(mock);
   const [error, setError] = useState(false);
 
   const hasMedia = markdownData && markdownData[currentImage].length > 1;
-  let fileName =
-    markdownData && hasMedia && markdownData[currentImage][5][1][1]["href"];
-  let fileType =
-    markdownData && hasMedia && markdownData[currentImage][5][1][2];
+  const nextPageData = markdownData && hasMedia && markdownData[currentImage];
+
+  let fileName = nextPageData[5][1][1]["href"];
+  let fileType = nextPageData[5][1][2];
   const [mainLoaded, currentSrc] = useProgressiveImage({
     src: "/assets/images/" + fileName,
     fallbackSrc: "/assets/images/minimized/" + fileName,

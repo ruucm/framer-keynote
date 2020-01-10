@@ -5,7 +5,7 @@ const pageDatas = [
       {
         level: 1
       },
-      "descTitle"
+      "한글입니다"
     ],
     [
       "header",
@@ -14,10 +14,7 @@ const pageDatas = [
       },
       "descSubTitle"
     ],
-    [
-      "para",
-      "The songs you had in iTunes are now in the Apple Music app. Look in your library to find the music you purchased from the iTunes Store or saved from Apple Music — organized by artists, albums, and songs.Click Recently Added in the sidebar to browse music you’ve added in the last week and month."
-    ],
+    ["para", "로렘 한글 입니다요요요"],
     [
       "header",
       {
@@ -25,13 +22,13 @@ const pageDatas = [
       },
       "trayTitle"
     ],
+    ["para", "trayParagraph"],
     [
       "para",
       [
         "link",
         {
-          href:
-            "https://help.apple.com/macos/catalina/whats-new/global/0109_music-album9_md.jpg"
+          href: "mock-0.jpg"
         },
         "image"
       ]
@@ -52,6 +49,7 @@ const pageDatas = [
       },
       "descSubTitle2"
     ],
+    ["para", "222"],
     [
       "header",
       {
@@ -59,14 +57,13 @@ const pageDatas = [
       },
       "trayTitle2"
     ],
-    ["para", "222"],
+    ["para", "trayParagraph2"],
     [
       "para",
       [
         "link",
         {
-          href:
-            "https://help.apple.com/macos/catalina/whats-new/global/0109_music-album9_md222.jpg"
+          href: "mock-1.jpg"
         },
         "image"
       ]
@@ -87,6 +84,7 @@ const pageDatas = [
       },
       "descSubTitle3"
     ],
+    ["para", "333"],
     [
       "header",
       {
@@ -94,16 +92,68 @@ const pageDatas = [
       },
       "trayTitle3"
     ],
-    ["para", "333"],
+    ["para", "trayParagraph3"],
     [
       "para",
       [
         "link",
         {
-          href:
-            "https://help.apple.com/macos/catalina/whats-new/global/0109_music-album9_md222.mp4"
+          href: "/assets/videos/intro.mp4"
         },
         "video"
+      ]
+    ]
+  ],
+  [
+    [
+      "header",
+      {
+        level: 1
+      },
+      "descTitle4"
+    ]
+  ],
+  [
+    [
+      "header",
+      {
+        level: 1
+      },
+      "descTitle5"
+    ]
+  ],
+  [
+    [
+      "header",
+      {
+        level: 1
+      },
+      "descTitle6"
+    ],
+    [
+      "header",
+      {
+        level: 2
+      },
+      "descSubTitle6"
+    ],
+    ["para", "6666"],
+    [
+      "header",
+      {
+        level: 2
+      },
+      "trayTitle6"
+    ],
+    ["para", "trayParagraph6"],
+    [
+      "para",
+      [
+        "link",
+        {
+          href: "mock-1.jpg"
+        },
+        "image"
       ]
     ]
   ]
