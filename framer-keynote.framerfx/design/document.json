@@ -1712,7 +1712,7 @@
         "isExternalMaster" : null,
         "isMaster" : true,
         "isTarget" : false,
-        "left" : 1084,
+        "left" : 2051,
         "locked" : false,
         "name" : "TestDesignComp",
         "navigationTarget" : null,
@@ -1733,7 +1733,7 @@
         "replicaInfo" : null,
         "right" : null,
         "rotation" : 0,
-        "top" : 4204,
+        "top" : 2577,
         "visible" : true,
         "width" : 748,
         "widthType" : 0

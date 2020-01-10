@@ -15,7 +15,7 @@ trayParagraph
 ##trayTitle2
 trayParagraph2
 
-[image](mock-1.jpg)
+[image](big-0.jpg)
 
 ---
 

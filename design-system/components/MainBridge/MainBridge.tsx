@@ -73,13 +73,13 @@ export function MainBridge({
 }) {
   const selectedTheme = useContext(ThemeContext) || themes[theme];
   const [currentPage, setCurrentPage] = useState(0);
-  const [currentImage, setCurrentImage] = useState(0);
+  // const [currentPage, setCurrentPage] = useState(0);
   const [reveal, setReveal] = useState(true);
   const [from, setFrom] = useState("right");
   const [markdownData, setMarkdownData] = useState(mock);
   const [error, setError] = useState(false);
 
-  const nextPageData = markdownData && markdownData[currentImage];
+  const nextPageData = markdownData && markdownData[currentPage];
   let fileName = nextPageData && nextPageData[5][1][1]["href"];
   let fileType = nextPageData && nextPageData[5][1][2];
   const hasMedia = fileType === "image" || fileType === "video";
@@ -90,30 +90,30 @@ export function MainBridge({
     fileType: fileType
   });
 
-  useEffect(() => {
-    const loadNext = () => {
-      console.log("loadNext!!!");
-      setCurrentPage(currentImage);
-      currentImage > currentPage ? nextPageAnimEnd() : prevPageAnimEnd(); // make image animation end after mainImage loaded
-    };
-    if (fileType === "image") mainLoaded && loadNext();
-    else loadNext();
-  }, [mainLoaded]);
+  // useEffect(() => {
+  //   const loadNext = () => {
+  //     console.log("loadNext!!!");
+  //     setCurrentPage(currentPage);
+  //     currentPage > currentPage ? nextPageAnimEnd() : prevPageAnimEnd(); // make image animation end after mainImage loaded
+  //   };
+  //   if (fileType === "image") mainLoaded && loadNext();
+  //   else loadNext();
+  // }, [mainLoaded]);
 
   const goPrevPage = async () => {
-    if (currentImage >= 1) {
-      // hide current Image first
-      await prevPageAnimStart();
-      // load next image
-      setCurrentImage(currentImage - 1);
+    if (currentPage >= 1) {
+      prevPageAnimStart();
+      await sleep(selectedTheme.transitions.long.duration);
+      prevPageAnimEnd();
+      setCurrentPage(currentPage - 1);
     } else alert("It's the first page");
   };
   const goNextPage = async () => {
-    if (currentImage < markdownData.length - 1) {
-      // hide current Image first
-      await nextPageAnimStart();
-      // load next image
-      setCurrentImage(currentImage + 1);
+    if (currentPage < markdownData.length - 1) {
+      nextPageAnimStart();
+      await sleep(selectedTheme.transitions.long.duration);
+      nextPageAnimEnd();
+      setCurrentPage(currentPage + 1);
     } else alert("It's the last page");
   };
 
