@@ -7,7 +7,7 @@ import { sleep, isClient, wem } from "../../../base/utils";
 import { SharePropsWithChildren } from "../../../base/utils/SharePropsWithChildren";
 import * as System from "../../../design-system";
 import { Row, Column } from "ruucm-blocks/layouts";
-import mock from "./mock";
+// import mock from "./mock2";
 import { markdown as md } from "markdown";
 
 const Wrap = styled(motion.div)`
@@ -62,6 +62,8 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
   const [markdownData, setMarkdownData] = useState(null);
   const [error, setError] = useState(false);
 
+  console.log("markdownData", markdownData);
+
   const loadContentData = () => {
     fetch(decodeURIComponent(contentData.replace("/preview", "")), {
       method: "GET",
@@ -84,12 +86,8 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
         resp
           .text()
           .then(result => {
-            console.log("result", result);
-            setMarkdownData(result);
-
             // parse the markdown into a tree and grab the link references
             var tree = md.parse(result);
-
             console.log("tree", tree);
 
             let res = [[]];
@@ -103,11 +101,11 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
                 res[resIndex].push(element);
               }
             }
-            console.log("res", res);
+            setMarkdownData(res);
           })
           .catch(e => {
             console.error(e);
-            console.log("Could not parse a valid JSON from the Lottie URL");
+            console.log("Could not parse a valid Data from the Markdown URL");
             setError(true);
           });
       })
@@ -138,12 +136,16 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
   };
 
   const MediaLayer = ({ type }) => {
-    if (type === "image") return <Img src={mock[currentPage].mediaUrl} />;
+    if (type === "image")
+      return <Img src={markdownData[currentPage][4][1]["href"]} />;
     else if (type === "video")
       return (
         <div>
           <Video width="320" height="240" controls>
-            <source src={mock[currentPage].mediaUrl} type="video/mp4" />
+            <source
+              src={markdownData[currentPage][4][1]["href"]}
+              type="video/mp4"
+            />
             Your browser does not support the video tag.
           </Video>
         </div>
@@ -152,56 +154,60 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
 
   return (
     <SharePropsWithChildren selectedTheme={selectedTheme}>
-      <Wrap>
-        <Row>
-          <StyledColumn
-            col={4}
-            style={{
-              width: isClient && window.innerWidth,
-              height: isClient && window.innerHeight
-            }}
-          >
-            <Description>
-              <System.Description
-                title={mock[currentPage].descTitle}
-                subTitle={mock[currentPage].descSubTitle}
-                paragraph={mock[currentPage].descParagraph}
-                trayTitle={mock[currentPage].descTrayTitle}
-                reveal={reveal}
-              />
-            </Description>
-            <PageNumber>
-              <System.PageNumber
-                currentPage={currentPage}
-                onIconLeftClick={async () => {
-                  await prevPageAnim();
-                  setCurrentPage(currentPage - 1);
-                }}
-                onIconRightClick={async () => {
-                  await nextPageAnim();
-                  setCurrentPage(currentPage + 1);
-                }}
-              />
-            </PageNumber>
-          </StyledColumn>
-          <Column
-            col={8}
-            style={{
-              width: width,
-              height: height,
-              background: selectedTheme.color.background
-            }}
-          >
-            <Media>
-              <System.MediaContainer
-                content={[<MediaLayer type={mock[currentPage].mediaType} />]}
-                reveal={reveal}
-                from={from}
-              />
-            </Media>
-          </Column>
-        </Row>
-      </Wrap>
+      {markdownData && (
+        <Wrap>
+          <Row>
+            <StyledColumn
+              col={4}
+              style={{
+                width: isClient && window.innerWidth,
+                height: isClient && window.innerHeight
+              }}
+            >
+              <Description>
+                <System.Description
+                  title={markdownData[currentPage][0][2]}
+                  subTitle={markdownData[currentPage][1][2]}
+                  paragraph={markdownData[currentPage][2][1]}
+                  trayTitle={markdownData[currentPage][3][2]}
+                  reveal={reveal}
+                />
+              </Description>
+              <PageNumber>
+                <System.PageNumber
+                  currentPage={currentPage}
+                  onIconLeftClick={async () => {
+                    await prevPageAnim();
+                    setCurrentPage(currentPage - 1);
+                  }}
+                  onIconRightClick={async () => {
+                    await nextPageAnim();
+                    setCurrentPage(currentPage + 1);
+                  }}
+                />
+              </PageNumber>
+            </StyledColumn>
+            <Column
+              col={8}
+              style={{
+                width: width,
+                height: height,
+                background: selectedTheme.color.background
+              }}
+            >
+              <Media>
+                <System.MediaContainer
+                  content={[
+                    <MediaLayer type={markdownData[currentPage][4][1][2]} />
+                  ]}
+                  reveal={reveal}
+                  from={from}
+                />
+              </Media>
+            </Column>
+          </Row>
+        </Wrap>
+      )}
     </SharePropsWithChildren>
   );
 }
