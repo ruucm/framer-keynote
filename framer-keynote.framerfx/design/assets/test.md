@@ -1,16 +1,10 @@
-#한글입니다
-##descSubTitle
-로렘 한글 입니다요요요
-
-##trayTitle
-trayParagraph
-
-[image](mock-0.jpg)
+#Why Framer X
 
 ---
 
-#descTitle1
-##descSubTitle1
+#요약
+
+##디자이너 / Technical 디자이너 or 프론트 개발자 (Pro Creators) / for Team (매니저)
 111
 ##trayTitle1
 trayParagraph2 Dolor consequat labore aute magna magna ex. Est proident enim magna est dolor magna sunt. Adipisicing do incididunt esse ad ea reprehenderit do occaecat eiusmod eu consequat. Ullamco tempor dolore reprehenderit veniam ex eiusmod duis aliqua incididunt deserunt esse. Quis reprehenderit incididunt culpa laboris.

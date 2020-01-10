@@ -182,6 +182,7 @@ export function MainBridge({ theme, framerLayer, width, height, contentData }) {
                   currentPage={currentPage}
                   onIconLeftClick={goPrevPage}
                   onIconRightClick={goNextPage}
+                  totalPage={markdownData && markdownData.length}
                 />
               </PageNumber>
             </StyledColumn>
@@ -230,6 +231,7 @@ export function MainBridge({ theme, framerLayer, width, height, contentData }) {
                   currentPage={currentPage}
                   onIconLeftClick={goPrevPage}
                   onIconRightClick={goNextPage}
+                  totalPage={markdownData && markdownData.length}
                 />
               </PageNumber>
             </StyledColumn>

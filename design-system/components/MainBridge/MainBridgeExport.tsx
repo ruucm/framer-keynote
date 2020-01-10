@@ -188,6 +188,7 @@ export function MainBridgeExport({
                   currentPage={currentPage}
                   onIconLeftClick={goPrevPage}
                   onIconRightClick={goNextPage}
+                  totalPage={markdownData && markdownData.length}
                 />
               </PageNumber>
             </StyledColumn>
@@ -236,6 +237,7 @@ export function MainBridgeExport({
                   currentPage={currentPage}
                   onIconLeftClick={goPrevPage}
                   onIconRightClick={goNextPage}
+                  totalPage={markdownData && markdownData.length}
                 />
               </PageNumber>
             </StyledColumn>
