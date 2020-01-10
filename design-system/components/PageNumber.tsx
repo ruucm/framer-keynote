@@ -1,10 +1,11 @@
 import * as React from "react";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { motion } from "framer-motion";
 import styled, { css, ThemeContext } from "styled-components";
 import { themes } from "../../base";
 import { SharePropsWithChildren } from "../../base/utils/SharePropsWithChildren";
 import * as System from "../../design-system";
+import { useKeyPress } from "./use-keypress";
 
 const Wrap = styled.div`
   width: 100%;
@@ -43,6 +44,17 @@ export function PageNumber({
   onIconRightClick
 }) {
   const selectedTheme = useContext(ThemeContext) || themes[theme];
+  const ArrowRightPress = useKeyPress("ArrowRight");
+  const ArrowLeftPress = useKeyPress("ArrowLeft");
+
+  useEffect(() => {
+    // if (ArrowRightPress) goNextPage();
+    console.log("ArrowRightPress!");
+  }, [ArrowRightPress]);
+  useEffect(() => {
+    // if (ArrowLeftPress) goPrevPage();
+    console.log("ArrowLeftPress!");
+  }, [ArrowLeftPress]);
 
   return (
     <SharePropsWithChildren selectedTheme={selectedTheme}>

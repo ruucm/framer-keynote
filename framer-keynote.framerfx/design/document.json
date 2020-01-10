@@ -1481,6 +1481,60 @@
         "visible" : true,
         "width" : 200,
         "widthType" : 0
+      },
+      {
+        "__class" : "CodeComponentNode",
+        "aspectRatio" : null,
+        "bottom" : null,
+        "centerAnchorX" : 0,
+        "centerAnchorY" : 0,
+        "children" : [
+
+        ],
+        "clip" : true,
+        "codeComponentIdentifier" : ".\/MainBridge2.tsx_MainBridge2",
+        "codeComponentProps" : {
+          "contentData" : "design\/assets\/test.md"
+        },
+        "codeOverrideEnabled" : false,
+        "constraintsLocked" : false,
+        "deviceType" : null,
+        "exportOptions" : [
+
+        ],
+        "fillColor" : "rgba(255,255,255,1)",
+        "fillEnabled" : false,
+        "fillImage" : null,
+        "fillImageOriginalName" : null,
+        "fillImagePixelHeight" : null,
+        "fillImagePixelWidth" : null,
+        "fillImageResize" : "fill",
+        "fillType" : "color",
+        "height" : 1080,
+        "heightType" : 0,
+        "id" : "XTjjUvfZ1",
+        "intrinsicHeight" : 1080,
+        "intrinsicWidth" : 1920,
+        "left" : -2123,
+        "locked" : false,
+        "name" : null,
+        "opacity" : 1,
+        "originalid" : null,
+        "parentid" : "jLUPs9gNN",
+        "previewSettings" : null,
+        "radius" : 0,
+        "radiusBottomLeft" : 0,
+        "radiusBottomRight" : 0,
+        "radiusIsRelative" : false,
+        "radiusPerCorner" : false,
+        "radiusTopLeft" : 0,
+        "radiusTopRight" : 0,
+        "right" : null,
+        "rotation" : 0,
+        "top" : 5768,
+        "visible" : true,
+        "width" : 1920,
+        "widthType" : 0
       }
     ],
     "guidesX" : [

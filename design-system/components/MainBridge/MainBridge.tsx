@@ -10,6 +10,7 @@ import { Row, Column } from "ruucm-blocks/layouts";
 // import mock from "./mock2";
 import { markdown as md } from "markdown";
 import { useKeyPress } from "./use-keypress";
+import { useProgressiveImage } from "./useProgressiveImage";
 
 const Wrap = styled(motion.div)`
   width: 100%;
@@ -68,8 +69,6 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
   const [from, setFrom] = useState("right");
   const [markdownData, setMarkdownData] = useState(null);
   const [error, setError] = useState(false);
-  const ArrowRightPress = useKeyPress("ArrowRight");
-  const ArrowLeftPress = useKeyPress("ArrowLeft");
 
   const goPrevPage = async () => {
     if (currentPage >= 1) {
@@ -83,13 +82,6 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
       setCurrentPage(currentPage + 1);
     } else alert("It's the last page");
   };
-
-  useEffect(() => {
-    if (ArrowRightPress) goNextPage();
-  }, [ArrowRightPress]);
-  useEffect(() => {
-    if (ArrowLeftPress) goPrevPage();
-  }, [ArrowLeftPress]);
 
   console.log("currentPage", currentPage);
 
@@ -165,8 +157,16 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
   };
 
   const MediaLayer = ({ type }) => {
+    let fileName = markdownData[currentPage][4][1][1]["href"];
     if (type === "image")
-      return <Img src={markdownData[currentPage][4][1][1]["href"]} />;
+      return (
+        <Img
+          src={useProgressiveImage({
+            src: "/assets/images/" + fileName,
+            fallbackSrc: "/assets/images/minimized/" + fileName
+          })}
+        />
+      );
     else if (type === "video")
       return (
         <div>
@@ -185,6 +185,20 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
     <SharePropsWithChildren selectedTheme={selectedTheme}>
       {markdownData && (
         <Wrap>
+          {markdownData.map((data, id) => {
+            console.log("data", data);
+            return data[4] ? (
+              <img
+                style={{
+                  position: "absolute",
+                  zIndex: -1
+                }}
+                src={"/assets/images/" + data[4][1][1]["href"]}
+              />
+            ) : (
+              ""
+            );
+          })}
           {markdownData[currentPage].length > 1 ? (
             <Row>
               <StyledColumn
