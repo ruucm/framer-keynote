@@ -73,19 +73,31 @@ export function MainBridge({
   let fileType = nextPageData && nextPageData[5][1][2];
   const hasMedia = fileType === "image" || fileType === "video";
 
+  const prevPageAnim = async () => {
+    setFrom("right");
+    setReveal(false);
+    await sleep(selectedTheme.transitions.long.duration);
+    setFrom("left");
+    setReveal(true);
+  };
+
+  const nextPageAnim = async () => {
+    setFrom("left");
+    setReveal(false);
+    await sleep(selectedTheme.transitions.long.duration);
+    setFrom("right");
+    setReveal(true);
+  };
+
   const goPrevPage = async () => {
     if (currentPage >= 1) {
-      prevPageAnimStart();
-      await sleep(selectedTheme.transitions.long.duration);
-      prevPageAnimEnd();
+      await prevPageAnim();
       setCurrentPage(currentPage - 1);
     } else alert("It's the first page");
   };
   const goNextPage = async () => {
     if (currentPage < markdownData.length - 1) {
-      nextPageAnimStart();
-      await sleep(selectedTheme.transitions.long.duration);
-      nextPageAnimEnd();
+      await nextPageAnim();
       setCurrentPage(currentPage + 1);
     } else alert("It's the last page");
   };
@@ -145,23 +157,6 @@ export function MainBridge({
   useEffect(() => {
     loadContentData();
   }, [contentData]);
-
-  const prevPageAnimStart = async () => {
-    setFrom("right");
-    setReveal(false);
-  };
-  const prevPageAnimEnd = async () => {
-    setFrom("left");
-    setReveal(true);
-  };
-  const nextPageAnimStart = async () => {
-    setFrom("left");
-    setReveal(false);
-  };
-  const nextPageAnimEnd = async () => {
-    setFrom("right");
-    setReveal(true);
-  };
 
   return (
     <SharePropsWithChildren selectedTheme={selectedTheme}>
