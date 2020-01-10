@@ -1,9 +1,10 @@
 // @flow
 import * as React from "react";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import styled, { css, ThemeContext } from "styled-components";
 import { themes } from "../../base";
+import { sleep } from "../../base/utils";
 import { SharePropsWithChildren } from "../../base/utils/SharePropsWithChildren";
 import * as System from "../../design-system";
 
@@ -33,6 +34,16 @@ export function Tray({ theme, title, expanded, children }) {
   if (children && children.length)
     expandedHeight = children[0].props.height + initialHeight + 15.8;
 
+  const [expandedState, setExpandedState] = useState(false);
+
+  useEffect(() => {
+    // const autoExpand = async () => {
+    //   await sleep(1)
+
+    // }
+    setExpandedState(expanded);
+  }, [expanded]);
+
   const wrapAnim = useAnimation();
   const iconAnim = useAnimation();
   const contentAnim = useAnimation();
@@ -59,13 +70,17 @@ export function Tray({ theme, title, expanded, children }) {
         rotate: 0
       });
     };
-    if (expanded) expand();
+    if (expandedState) expand();
     else unexpand();
-  }, [expanded]);
+  }, [expandedState]);
 
   return (
     <SharePropsWithChildren selectedTheme={selectedTheme}>
-      <Wrap animate={wrapAnim} transition={selectedTheme.transitions.long}>
+      <Wrap
+        animate={wrapAnim}
+        transition={selectedTheme.transitions.long}
+        onClick={() => setExpandedState(!expandedState)}
+      >
         <System.Typography text={title} type="ButtonText" />
         <Icon animate={iconAnim} transition={selectedTheme.transitions.long}>
           <System.Icon icon="Plus" color={selectedTheme.color.secondary} />
