@@ -72,13 +72,13 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
   const ArrowLeftPress = useKeyPress("ArrowLeft");
 
   const goPrevPage = async () => {
-    if (currentPage > 1) {
+    if (currentPage >= 1) {
       await prevPageAnim();
       setCurrentPage(currentPage - 1);
     } else alert("It's the first page");
   };
   const goNextPage = async () => {
-    if (currentPage < markdownData.length) {
+    if (currentPage < markdownData.length - 1) {
       await nextPageAnim();
       setCurrentPage(currentPage + 1);
     } else alert("It's the last page");
@@ -86,10 +86,12 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
 
   useEffect(() => {
     if (ArrowRightPress) goNextPage();
-    else if (ArrowLeftPress) goPrevPage();
-  }, [ArrowRightPress, ArrowLeftPress]);
+  }, [ArrowRightPress]);
+  useEffect(() => {
+    if (ArrowLeftPress) goPrevPage();
+  }, [ArrowLeftPress]);
 
-  console.log("markdownData", markdownData);
+  console.log("currentPage", currentPage);
 
   const loadContentData = () => {
     fetch(decodeURIComponent(contentData.replace("/preview", "")), {
