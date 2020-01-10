@@ -7,6 +7,14 @@ import { themes } from "../../base";
 
 const P = styled(motion.p)`
   ${props =>
+    props.type === "Heading1" &&
+    css`
+      font-family: ${props.theme.font.type2};
+      font-weight: 700;
+      font-size: 60px;
+      color: ${props.theme.color.body};
+    `}
+  ${props =>
     props.type === "Heading2" &&
     css`
       font-family: ${props.theme.font.type1};

@@ -4,7 +4,7 @@ The songs you had in iTunes are now in the Apple Music app. Look in your library
 
 ##trayTitle
 
-[image](/assets/images/mock-0.png)
+[image](/assets/images/mock-0.jpg)
 
 ---
 
@@ -23,3 +23,7 @@ The songs you had in iTunes are now in the Apple Music app. Look in your library
 ##trayTitle3
 
 [video](https://help.apple.com/macos/catalina/whats-new/global/0109_music-album9_md222.mp4)
+
+---
+
+#descTitle4

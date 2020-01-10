@@ -65,9 +65,9 @@ export function Tray({ theme, title, expanded, children }) {
 
   return (
     <SharePropsWithChildren selectedTheme={selectedTheme}>
-      <Wrap animate={wrapAnim} transition={selectedTheme.transitions.short}>
+      <Wrap animate={wrapAnim} transition={selectedTheme.transitions.long}>
         <System.Typography text={title} type="ButtonText" />
-        <Icon animate={iconAnim} transition={selectedTheme.transitions.short}>
+        <Icon animate={iconAnim} transition={selectedTheme.transitions.long}>
           <System.Icon icon="Plus" color={selectedTheme.color.secondary} />
         </Icon>
         <Content
@@ -75,7 +75,7 @@ export function Tray({ theme, title, expanded, children }) {
             opacity: 0
           }}
           animate={contentAnim}
-          transition={selectedTheme.transitions.short}
+          transition={selectedTheme.transitions.long}
         >
           {children ? children : "Add Children"}
         </Content>

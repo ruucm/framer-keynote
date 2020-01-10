@@ -30,7 +30,7 @@ export function Description({
         animate={{
           opacity: reveal ? 1 : 0
         }}
-        transition={selectedTheme.transitions.short}
+        transition={selectedTheme.transitions.long}
       >
         <System.Typography text={title} customColor color="#d85c8e" />
         <System.Spacing height={6} />

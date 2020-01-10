@@ -19,6 +19,12 @@ const StyledColumn = styled(Column)`
   position: relative;
   padding: 0 110px;
 `;
+const Heading1 = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;
 const Description = styled.div`
   position: absolute;
   width: ${wem(470)}vw;
@@ -123,14 +129,14 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
   const prevPageAnim = async () => {
     setFrom("right");
     setReveal(false);
-    await sleep(selectedTheme.transitions.short.duration);
+    await sleep(selectedTheme.transitions.long.duration);
     setFrom("left");
     setReveal(true);
   };
   const nextPageAnim = async () => {
     setFrom("left");
     setReveal(false);
-    await sleep(selectedTheme.transitions.short.duration);
+    await sleep(selectedTheme.transitions.long.duration);
     setFrom("right");
     setReveal(true);
   };
@@ -156,59 +162,78 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
     <SharePropsWithChildren selectedTheme={selectedTheme}>
       {markdownData && (
         <Wrap>
-          <Row>
-            <StyledColumn
-              col={4}
-              style={{
-                width: isClient && window.innerWidth,
-                height: isClient && window.innerHeight
-              }}
-            >
-              <Description>
-                <System.Description
-                  title={markdownData[currentPage][0][2]}
-                  subTitle={markdownData[currentPage][1][2]}
-                  paragraph={markdownData[currentPage][2][1]}
-                  trayTitle={markdownData[currentPage][3][2]}
-                  reveal={reveal}
-                />
-              </Description>
-              <PageNumber>
-                <System.PageNumber
-                  currentPage={currentPage}
-                  onIconLeftClick={async () => {
-                    await prevPageAnim();
-                    setCurrentPage(currentPage - 1);
-                  }}
-                  onIconRightClick={async () => {
-                    await nextPageAnim();
-                    setCurrentPage(currentPage + 1);
-                  }}
-                />
-              </PageNumber>
-            </StyledColumn>
-            <Column
-              col={8}
-              style={{
-                width: width,
-                height: height,
-                background: selectedTheme.color.background
-              }}
-            >
-              <Media>
-                <System.MediaContainer
-                  content={[
-                    <MediaLayer
-                      key={0}
-                      type={markdownData[currentPage][4][1][2]}
-                    />
-                  ]}
-                  reveal={reveal}
-                  from={from}
-                />
-              </Media>
-            </Column>
-          </Row>
+          {markdownData[currentPage].length > 1 ? (
+            <Row>
+              <StyledColumn
+                col={4}
+                style={{
+                  width: isClient && window.innerWidth,
+                  height: isClient && window.innerHeight
+                }}
+              >
+                <Description>
+                  <System.Description
+                    title={markdownData[currentPage][0][2]}
+                    subTitle={markdownData[currentPage][1][2]}
+                    paragraph={markdownData[currentPage][2][1]}
+                    trayTitle={markdownData[currentPage][3][2]}
+                    reveal={reveal}
+                  />
+                </Description>
+                <PageNumber>
+                  <System.PageNumber
+                    currentPage={currentPage}
+                    onIconLeftClick={async () => {
+                      await prevPageAnim();
+                      setCurrentPage(currentPage - 1);
+                    }}
+                    onIconRightClick={async () => {
+                      await nextPageAnim();
+                      setCurrentPage(currentPage + 1);
+                    }}
+                  />
+                </PageNumber>
+              </StyledColumn>
+              <Column
+                col={8}
+                style={{
+                  width: width,
+                  height: height,
+                  background: selectedTheme.color.background
+                }}
+              >
+                <Media>
+                  <System.MediaContainer
+                    content={[
+                      <MediaLayer
+                        key={0}
+                        type={markdownData[currentPage][4][1][2]}
+                      />
+                    ]}
+                    reveal={reveal}
+                    from={from}
+                  />
+                </Media>
+              </Column>
+            </Row>
+          ) : (
+            <Row>
+              <StyledColumn
+                col={12}
+                style={{
+                  width: isClient && window.innerWidth,
+                  height: isClient && window.innerHeight
+                }}
+              >
+                <Heading1>
+                  <System.Typography
+                    type="Heading1"
+                    text={markdownData[currentPage][0][2]}
+                  />
+                </Heading1>
+              </StyledColumn>
+            </Row>
+          )}
         </Wrap>
       )}
     </SharePropsWithChildren>
