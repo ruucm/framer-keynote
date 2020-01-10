@@ -63,7 +63,14 @@ const Video = styled.video`
   transform: translate(-50%, -50%);
 `;
 
-export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
+export function MainBridge({
+  theme,
+  mediaLayer,
+  designCompLayer,
+  width,
+  height,
+  contentData
+}) {
   const selectedTheme = useContext(ThemeContext) || themes[theme];
   const [currentPage, setCurrentPage] = useState(0);
   const [currentImage, setCurrentImage] = useState(0);
@@ -200,13 +207,21 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
       );
     else if (type === "video")
       return (
-        <Video controls>
-          <source
-            src={markdownData[currentPage][5][1][1]["href"]}
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </Video>
+        <div
+          style={{
+            height: "100%",
+            position: "relative"
+          }}
+        >
+          {designCompLayer}
+        </div>
+        // <Video controls>
+        //   <source
+        //     src={markdownData[currentPage][5][1][1]["href"]}
+        //     type="video/mp4"
+        //   />
+        //   Your browser does not support the video tag.
+        // </Video>
       );
   };
 

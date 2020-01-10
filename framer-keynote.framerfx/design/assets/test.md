@@ -38,7 +38,7 @@ trayParagraph3
 
 -
 
-[bigHeader](mock-0.jpg)
+[bigHeader](dummy-0.jpg)
 
 ---
 
@@ -51,7 +51,7 @@ trayParagraph3
 
 -
 
-[bigHeader](mock-1.jpg)
+[bigHeader](dummy-1.jpg)
 
 ---
 

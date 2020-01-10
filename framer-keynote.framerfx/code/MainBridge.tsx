@@ -12,7 +12,8 @@ MainBridge.defaultProps = {
   ...System.MainBridge.defaultProps
 }; // add same default props from System
 const variantTitles = {
-  mediaLayer: "MediaLayer"
+  mediaLayer: "MediaLayer",
+  designCompLayer: "DesignCompLayer"
 };
 const variantKeys = Object.keys(variantTitles);
 addPropertyControls(MainBridge, {
