@@ -170,9 +170,10 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
         <div
           style={{
             background: loaded ? "transparent" : selectedTheme.color.secondary,
-            minHeight: 500,
+            height: "100%",
             position: "relative",
-            borderRadius: 20
+            borderRadius: 10,
+            // boxShadow: "10px 20px 30px 10px " + selectedTheme.color.secondary
           }}
         >
           {currentSrc && <Img src={currentSrc} />}
