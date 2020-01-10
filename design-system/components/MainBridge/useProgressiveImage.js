@@ -12,22 +12,26 @@ function reducer(currentSrc, action) {
 
 export function useProgressiveImage({ src, fallbackSrc }) {
   const [currentSrc, dispatch] = useReducer(reducer);
-  const [loaded, setLoaded] = useState(false);
+  const [mainLoaded, setLoaded] = useState(false);
   useEffect(() => {
     const mainImage = new Image();
     const fallbackImage = new Image();
 
     mainImage.onload = () => {
       dispatch({ type: "main image loaded", src });
+      setLoaded(true);
     };
     fallbackImage.onload = () => {
       dispatch({ type: "fallback image loaded", src: fallbackSrc });
-      setLoaded(true);
     };
 
     mainImage.src = src;
     fallbackImage.src = fallbackSrc;
   }, [src, fallbackSrc]);
 
-  return [loaded, currentSrc];
+  useEffect(() => {
+    setLoaded(false);
+  }, [src]);
+
+  return [mainLoaded, currentSrc];
 }

@@ -59,25 +59,41 @@ const Video = styled.video``;
 export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
   const selectedTheme = useContext(ThemeContext) || themes[theme];
   const [currentPage, setCurrentPage] = useState(0);
+  const [currentImage, setCurrentImage] = useState(0);
   const [reveal, setReveal] = useState(true);
   const [from, setFrom] = useState("right");
   const [markdownData, setMarkdownData] = useState(null);
   const [error, setError] = useState(false);
 
+  let fileName = markdownData && markdownData[currentImage][4][1][1]["href"];
+  const [mainLoaded, currentSrc] = useProgressiveImage({
+    src: "/assets/images/" + fileName,
+    fallbackSrc: "/assets/images/minimized/" + fileName
+  });
+
+  useEffect(() => {
+    if (mainLoaded) {
+      setCurrentPage(currentImage);
+      currentImage > currentPage ? nextPageAnimEnd() : prevPageAnimEnd(); // make image animation end after mainImage loaded
+    }
+  }, [mainLoaded]);
+
   const goPrevPage = async () => {
-    if (currentPage >= 1) {
-      await prevPageAnim();
-      setCurrentPage(currentPage - 1);
+    if (currentImage >= 1) {
+      // hide current Image first
+      await prevPageAnimStart();
+      // load next image
+      setCurrentImage(currentImage - 1);
     } else alert("It's the first page");
   };
   const goNextPage = async () => {
-    if (currentPage < markdownData.length - 1) {
-      await nextPageAnim();
-      setCurrentPage(currentPage + 1);
+    if (currentImage < markdownData.length - 1) {
+      // hide current Image first
+      await nextPageAnimStart();
+      // load next image
+      setCurrentImage(currentImage + 1);
     } else alert("It's the last page");
   };
-
-  console.log("currentPage", currentPage);
 
   const loadContentData = () => {
     fetch(decodeURIComponent(contentData.replace("/preview", "")), {
@@ -135,34 +151,33 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
     loadContentData();
   }, [contentData]);
 
-  const prevPageAnim = async () => {
+  const prevPageAnimStart = async () => {
     setFrom("right");
     setReveal(false);
-    await sleep(selectedTheme.transitions.long.duration);
+  };
+  const prevPageAnimEnd = async () => {
     setFrom("left");
     setReveal(true);
   };
-  const nextPageAnim = async () => {
+  const nextPageAnimStart = async () => {
     setFrom("left");
     setReveal(false);
-    await sleep(selectedTheme.transitions.long.duration);
+  };
+  const nextPageAnimEnd = async () => {
     setFrom("right");
     setReveal(true);
   };
 
   const MediaLayer = ({ type }) => {
-    let fileName = markdownData[currentPage][4][1][1]["href"];
-    const [loaded, currentSrc] = useProgressiveImage({
-      src: "/assets/images/" + fileName,
-      fallbackSrc: "/assets/images/minimized/" + fileName
-    });
     if (type === "image")
       return (
         <div
           style={{
-            background: loaded
-              ? "center / cover no-repeat url(" + currentSrc + ")"
-              : selectedTheme.color.secondary,
+            // background: mainLoaded
+            //   ? "center / cover no-repeat url(" + currentSrc + ")"
+            //   : selectedTheme.color.secondary,
+            background: "center / cover no-repeat url(" + currentSrc + ")",
+            backgroundColor: selectedTheme.color.secondary,
             height: "100%",
             position: "relative"
           }}
