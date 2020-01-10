@@ -202,7 +202,7 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
       return (
         <Video controls>
           <source
-            src={markdownData[currentPage][4][1][1]["href"]}
+            src={markdownData[currentPage][5][1][1]["href"]}
             type="video/mp4"
           />
           Your browser does not support the video tag.
