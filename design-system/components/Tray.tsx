@@ -7,6 +7,7 @@ import { themes } from "../../base";
 import { sleep } from "../../base/utils";
 import { SharePropsWithChildren } from "../../base/utils/SharePropsWithChildren";
 import * as System from "../../design-system";
+import { useKeyPress } from "./use-keypress";
 
 const Wrap = styled(motion.div)`
   border-top: 1px solid ${props => props.selectedTheme.color.border};
@@ -34,6 +35,15 @@ export function Tray({ theme, title, expanded, children }) {
 
   const [expandedState, setExpandedState] = useState(false);
   useEffect(() => setExpandedState(false), [title]);
+  const ArrowDownPress = useKeyPress("ArrowDown");
+  const ArrowUpPress = useKeyPress("ArrowUp");
+
+  useEffect(() => {
+    if (ArrowDownPress) setExpandedState(true);
+  }, [ArrowDownPress]);
+  useEffect(() => {
+    if (ArrowUpPress) setExpandedState(false);
+  }, [ArrowUpPress]);
 
   const wrapAnim = useAnimation();
   const iconAnim = useAnimation();
