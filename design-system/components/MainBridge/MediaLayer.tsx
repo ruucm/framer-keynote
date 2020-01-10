@@ -49,10 +49,12 @@ export function MediaLayer({ theme, type, fileName, framerLayer }) {
                   height: "100%"
                 }}
               >
-                {React.cloneElement(framerLayer[Number(fileName)], {
-                  width: "100%",
-                  height: "100%"
-                })}
+                {framerLayer[Number(fileName)]
+                  ? React.cloneElement(framerLayer[Number(fileName)], {
+                      width: "100%",
+                      height: "100%"
+                    })
+                  : "Add FramerLayer First"}
               </div>
             );
           default:
