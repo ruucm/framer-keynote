@@ -72,12 +72,16 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
   const [markdownData, setMarkdownData] = useState(null);
   const [error, setError] = useState(false);
 
-  let fileName = markdownData && markdownData[currentImage][4][1][1]["href"];
-  let fileType = markdownData && markdownData[currentImage][4][1][2];
+  const hasMedia = markdownData && markdownData[currentImage].length > 1;
+  let fileName =
+    markdownData && hasMedia && markdownData[currentImage][4][1][1]["href"];
+  let fileType =
+    markdownData && hasMedia && markdownData[currentImage][4][1][2];
   const [mainLoaded, currentSrc] = useProgressiveImage({
     src: "/assets/images/" + fileName,
     fallbackSrc: "/assets/images/minimized/" + fileName,
-    fileType: fileType
+    fileType: fileType,
+    hasMedia: hasMedia
   });
 
   useEffect(() => {
@@ -210,7 +214,7 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
     <SharePropsWithChildren selectedTheme={selectedTheme}>
       {markdownData && (
         <Wrap>
-          {markdownData[currentPage].length > 1 ? (
+          {hasMedia ? (
             <Row>
               <StyledColumn
                 col={4}
