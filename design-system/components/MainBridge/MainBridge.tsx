@@ -9,6 +9,7 @@ import * as System from "../../../design-system";
 import { Row, Column } from "ruucm-blocks/layouts";
 // import mock from "./mock2";
 import { markdown as md } from "markdown";
+import { useKeyPress } from "./use-keypress";
 
 const Wrap = styled(motion.div)`
   width: 100%;
@@ -67,6 +68,26 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
   const [from, setFrom] = useState("right");
   const [markdownData, setMarkdownData] = useState(null);
   const [error, setError] = useState(false);
+  const ArrowRightPress = useKeyPress("ArrowRight");
+  const ArrowLeftPress = useKeyPress("ArrowLeft");
+
+  const goPrevPage = async () => {
+    if (currentPage > 1) {
+      await prevPageAnim();
+      setCurrentPage(currentPage - 1);
+    } else alert("It's the first page");
+  };
+  const goNextPage = async () => {
+    if (currentPage < markdownData.length) {
+      await nextPageAnim();
+      setCurrentPage(currentPage + 1);
+    } else alert("It's the last page");
+  };
+
+  useEffect(() => {
+    if (ArrowRightPress) goNextPage();
+    else if (ArrowLeftPress) goPrevPage();
+  }, [ArrowRightPress, ArrowLeftPress]);
 
   console.log("markdownData", markdownData);
 
@@ -183,14 +204,8 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
                 <PageNumber>
                   <System.PageNumber
                     currentPage={currentPage}
-                    onIconLeftClick={async () => {
-                      await prevPageAnim();
-                      setCurrentPage(currentPage - 1);
-                    }}
-                    onIconRightClick={async () => {
-                      await nextPageAnim();
-                      setCurrentPage(currentPage + 1);
-                    }}
+                    onIconLeftClick={goPrevPage}
+                    onIconRightClick={goNextPage}
                   />
                 </PageNumber>
               </StyledColumn>
