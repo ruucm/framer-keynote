@@ -9,6 +9,9 @@ import { SharePropsWithChildren } from "../../base/utils/SharePropsWithChildren"
 const Wrap = styled(motion.div)`
   width: 100%;
   height: 100%;
+  box-shadow: 10px 20px 30px 10px
+    ${props => props.selectedTheme.color.secondary};
+  border-radius: 10px;
 `;
 
 export function MediaContainer({ content, theme, reveal, from }) {

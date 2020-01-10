@@ -45,7 +45,6 @@ const Media = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  overflow: hidden;
 `;
 
 const PageNumber = styled.div`
@@ -54,14 +53,7 @@ const PageNumber = styled.div`
   position: absolute;
   bottom: 15px;
 `;
-const Img = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-`;
+
 const Video = styled.video``;
 
 export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
@@ -168,15 +160,13 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
       return (
         <div
           style={{
-            background: loaded ? "transparent" : selectedTheme.color.secondary,
+            background: loaded
+              ? "center / cover no-repeat url(" + currentSrc + ")"
+              : selectedTheme.color.secondary,
             height: "100%",
-            position: "relative",
-            borderRadius: 10
-            // boxShadow: "10px 20px 30px 10px " + selectedTheme.color.secondary
+            position: "relative"
           }}
-        >
-          {currentSrc && <Img src={currentSrc} />}
-        </div>
+        />
       );
     else if (type === "video")
       return (
@@ -227,7 +217,8 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
                 style={{
                   width: width,
                   height: height,
-                  background: selectedTheme.color.background
+                  background: selectedTheme.color.background,
+                  overflow: "hidden"
                 }}
               >
                 <Media>
