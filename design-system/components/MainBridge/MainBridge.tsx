@@ -72,17 +72,33 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
   const [markdownData, setMarkdownData] = useState(null);
   const [error, setError] = useState(false);
 
-  const hasMedia = markdownData && markdownData[currentImage].length > 1;
+  const hasMedia =
+    markdownData &&
+    markdownData.length &&
+    markdownData[currentImage].length > 1;
+  console.log("0");
   let fileName =
-    markdownData && hasMedia && markdownData[currentImage][5][1][1]["href"];
+    markdownData &&
+    hasMedia &&
+    markdownData.length &&
+    markdownData[currentImage][5][1][1]["href"];
+  console.log("1");
   let fileType =
-    markdownData && hasMedia && markdownData[currentImage][5][1][2];
+    markdownData &&
+    hasMedia &&
+    markdownData.length &&
+    markdownData[currentImage][5][1][2];
   const [mainLoaded, currentSrc] = useProgressiveImage({
     src: "/assets/images/" + fileName,
     fallbackSrc: "/assets/images/minimized/" + fileName,
     fileType: fileType,
     hasMedia: hasMedia
   });
+  console.log("2");
+  const currentPageData = markdownData && markdownData[currentPage];
+  const nextPageData = markdownData && markdownData[currentImage];
+
+  console.log("fileType", fileType);
 
   useEffect(() => {
     const loadNext = () => {
@@ -91,14 +107,28 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
     };
     if (fileType === "image") mainLoaded && loadNext();
     else loadNext();
+    // if (!fileType) {
+    //   console.log("update!");
+    //   setCurrentPage(currentImage);
+    // }
   }, [mainLoaded]);
+  useEffect(() => {
+    if (!fileType) {
+      console.log("update!");
+      setCurrentPage(currentImage);
+    }
+  }, [currentImage]);
+  console.log("currentPage", currentPage);
+  console.log("currentImage", currentImage);
 
   const goPrevPage = async () => {
     if (currentImage >= 1) {
       // hide current Image first
       await prevPageAnimStart();
+      console.log("goPrevPage", goPrevPage);
       // load next image
       setCurrentImage(currentImage - 1);
+      console.log("currentImage", currentImage);
     } else alert("It's the first page");
   };
   const goNextPage = async () => {
@@ -201,10 +231,10 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
     else if (type === "video")
       return (
         <Video controls>
-          <source
-            src={markdownData[currentPage][5][1][1]["href"]}
+          {/* <source
+            src={currentPageData[5][1][1]["href"]}
             type="video/mp4"
-          />
+          /> */}
           Your browser does not support the video tag.
         </Video>
       );
@@ -225,11 +255,11 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
               >
                 <Description>
                   <System.Description
-                    title={markdownData[currentPage][0][2]}
-                    subTitle={markdownData[currentPage][1][2]}
-                    paragraph={markdownData[currentPage][2][1]}
-                    trayTitle={markdownData[currentPage][3][2]}
-                    trayParagraph={markdownData[currentPage][4][1]}
+                    title={currentPageData[0][2]}
+                    // subTitle={nextPageData[1][2]}
+                    // paragraph={nextPageData[2][1]}
+                    // trayTitle={nextPageData[3][2]}
+                    // trayParagraph={nextPageData[4][1]}
                     reveal={reveal}
                   />
                 </Description>
@@ -269,10 +299,10 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
                 }}
               >
                 <Heading1>
-                  <System.Typography
+                  {/* <System.Typography
                     type="Heading1"
-                    text={markdownData[currentPage][0][2]}
-                  />
+                    text={currentPageData[0][2]}
+                  /> */}
                 </Heading1>
                 <PageNumber>
                   <System.PageNumber
