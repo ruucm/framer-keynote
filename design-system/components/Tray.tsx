@@ -1,6 +1,6 @@
 // @flow
 import * as React from "react";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState, useRef } from "react";
 import { motion, useAnimation } from "framer-motion";
 import styled, { css, ThemeContext } from "styled-components";
 import { themes } from "../../base";
@@ -28,14 +28,12 @@ const Content = styled(motion.div)`
 `;
 
 const initialHeight = 52;
+let expandedHeight = 300;
 export function Tray({ theme, title, expanded, children }) {
   const selectedTheme = useContext(ThemeContext) || themes[theme];
-  let expandedHeight = 300;
-  if (children && children.length)
-    expandedHeight = children[0].props.height + initialHeight + 15.8;
 
   const [expandedState, setExpandedState] = useState(false);
-  useEffect(() => setExpandedState(false), [title])
+  useEffect(() => setExpandedState(false), [title]);
 
   const wrapAnim = useAnimation();
   const iconAnim = useAnimation();
@@ -53,7 +51,7 @@ export function Tray({ theme, title, expanded, children }) {
       });
     };
     const unexpand = async () => {
-       contentAnim.start({
+      contentAnim.start({
         opacity: 0,
         transition: {
           duration: 0
@@ -76,6 +74,13 @@ export function Tray({ theme, title, expanded, children }) {
     else unexpand();
   }, [expandedState]);
 
+  const observed = useRef(null);
+
+  useEffect(() => {
+    let height = observed.current.clientHeight;
+    expandedHeight = height + initialHeight + 15.8;
+  }, [observed, title]);
+
   return (
     <SharePropsWithChildren selectedTheme={selectedTheme}>
       <Wrap
@@ -94,7 +99,7 @@ export function Tray({ theme, title, expanded, children }) {
           animate={contentAnim}
           transition={selectedTheme.transitions.long}
         >
-          {children ? children : "Add Children"}
+          <div ref={observed}>{children ? children : "Add Children"}</div>
         </Content>
       </Wrap>
     </SharePropsWithChildren>

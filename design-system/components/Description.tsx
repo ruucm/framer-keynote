@@ -45,7 +45,7 @@ export function Description({
           }}
         >
           <System.Tray title={trayTitle}>
-            <System.TrayContent text={trayParagraph} height={330} />
+            <System.TrayContent text={trayParagraph} />
           </System.Tray>
         </div>
       </Wrap>
