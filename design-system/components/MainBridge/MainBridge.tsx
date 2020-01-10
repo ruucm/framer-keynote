@@ -66,16 +66,20 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
   const [error, setError] = useState(false);
 
   let fileName = markdownData && markdownData[currentImage][4][1][1]["href"];
+  let fileType = markdownData && markdownData[currentImage][4][1][2];
   const [mainLoaded, currentSrc] = useProgressiveImage({
     src: "/assets/images/" + fileName,
-    fallbackSrc: "/assets/images/minimized/" + fileName
+    fallbackSrc: "/assets/images/minimized/" + fileName,
+    fileType: fileType
   });
 
   useEffect(() => {
-    if (mainLoaded) {
+    const loadNext = () => {
       setCurrentPage(currentImage);
       currentImage > currentPage ? nextPageAnimEnd() : prevPageAnimEnd(); // make image animation end after mainImage loaded
-    }
+    };
+    if (fileType === "image") mainLoaded && loadNext();
+    else loadNext();
   }, [mainLoaded]);
 
   const goPrevPage = async () => {
@@ -238,12 +242,7 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
               >
                 <Media>
                   <System.MediaContainer
-                    content={[
-                      <MediaLayer
-                        key={0}
-                        type={markdownData[currentPage][4][1][2]}
-                      />
-                    ]}
+                    content={[<MediaLayer key={0} type={fileType} />]}
                     reveal={reveal}
                     from={from}
                   />
