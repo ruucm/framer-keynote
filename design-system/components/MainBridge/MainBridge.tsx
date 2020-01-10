@@ -53,14 +53,7 @@ const PageNumber = styled.div`
   bottom: 15px;
 `;
 
-export function MainBridge({
-  theme,
-  mediaLayer,
-  designCompLayer,
-  width,
-  height,
-  contentData
-}) {
+export function MainBridge({ theme, framerLayer, width, height, contentData }) {
   const selectedTheme = useContext(ThemeContext) || themes[theme];
   const [currentPage, setCurrentPage] = useState(0);
   const [reveal, setReveal] = useState(true);
@@ -208,7 +201,7 @@ export function MainBridge({
                       key={0}
                       type={fileType}
                       fileName={fileName}
-                      designCompLayer={designCompLayer}
+                      framerLayer={framerLayer}
                     />
                   ]}
                   reveal={reveal}

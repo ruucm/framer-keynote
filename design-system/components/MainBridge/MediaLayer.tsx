@@ -15,7 +15,7 @@ const Video = styled.video`
   transform: translate(-50%, -50%);
 `;
 
-export function MediaLayer({ theme, type, fileName, designCompLayer }) {
+export function MediaLayer({ theme, type, fileName, framerLayer }) {
   const selectedTheme = useContext(ThemeContext) || themes[theme];
   console.log("fileName - MediaLayer", fileName);
   return (
@@ -41,7 +41,7 @@ export function MediaLayer({ theme, type, fileName, designCompLayer }) {
                 Your browser does not support the video tag.
               </Video>
             );
-          case "designComp":
+          case "framerLayer":
             return (
               <div
                 style={{
@@ -49,7 +49,7 @@ export function MediaLayer({ theme, type, fileName, designCompLayer }) {
                   height: "100%"
                 }}
               >
-                {React.cloneElement(designCompLayer[Number(fileName)], {
+                {React.cloneElement(framerLayer[Number(fileName)], {
                   width: "100%",
                   height: "100%"
                 })}

@@ -1067,7 +1067,7 @@
             "codeComponentIdentifier" : ".\/MainBridge.tsx_MainBridge",
             "codeComponentProps" : {
               "contentData" : "design\/assets\/test.md",
-              "designCompLayer" : [
+              "framerLayer" : [
                 {
                   "enabled" : true,
                   "type" : "componentinstance",
