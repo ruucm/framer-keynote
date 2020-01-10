@@ -1,6 +1,6 @@
 const font = {
-  type1: "SF Pro Display",
-  type2: "SF Pro Text"
+  type1: "'SF Pro KR Display', 'SF Pro Display'",
+  type2: "'SF Pro KR Display', 'SF Pro Text'"
 };
 const transitions = {
   short: {
