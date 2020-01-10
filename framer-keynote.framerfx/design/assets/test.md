@@ -22,7 +22,7 @@
 333
 ##trayTitle3
 
-[video](https://help.apple.com/macos/catalina/whats-new/global/0109_music-album9_md222.mp4)
+[video](/assets/videos/intro.mp4)
 
 ---
 

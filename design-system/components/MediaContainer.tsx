@@ -13,6 +13,7 @@ const Wrap = styled(motion.div)`
     ${props => props.selectedTheme.color.secondary};
   border-radius: 10px;
   overflow: hidden;
+  position: relative;
 `;
 
 export function MediaContainer({ content, theme, reveal, from }) {

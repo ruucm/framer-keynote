@@ -41,7 +41,7 @@ const Description = styled.div`
 const Media = styled.div`
   position: absolute;
   width: ${wem(1178)}vw;
-  height: ${wem(803)}vw;
+  height: ${wem(662)}vw;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -54,7 +54,14 @@ const PageNumber = styled.div`
   bottom: 15px;
 `;
 
-const Video = styled.video``;
+const Video = styled.video`
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;
 
 export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
   const selectedTheme = useContext(ThemeContext) || themes[theme];
@@ -189,15 +196,15 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
       );
     else if (type === "video")
       return (
-        <div>
-          <Video width="320" height="240" controls>
-            <source
-              src={markdownData[currentPage][4][1][1]["href"]}
-              type="video/mp4"
-            />
-            Your browser does not support the video tag.
-          </Video>
-        </div>
+        // <div>
+        <Video controls>
+          <source
+            src={markdownData[currentPage][4][1][1]["href"]}
+            type="video/mp4"
+          />
+          Your browser does not support the video tag.
+        </Video>
+        // </div>
       );
   };
 
