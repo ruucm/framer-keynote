@@ -28,11 +28,7 @@ export function Icon({ icon, color, width, height, ...props }) {
           case "ChevronRight":
             return <Icons.Chevron color={color} />;
           case "ChevronLeft":
-            return (
-              <Rotate180>
-                <Icons.Chevron color={color} />
-              </Rotate180>
-            );
+            return <Icons.ChevronLeft color={color} />;
           case "Plus":
             return <Icons.Plus color={color} />;
           default:

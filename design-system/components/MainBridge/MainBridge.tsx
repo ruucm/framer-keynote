@@ -167,8 +167,8 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
               <StyledColumn
                 col={4}
                 style={{
-                  width: isClient && window.innerWidth,
-                  height: isClient && window.innerHeight
+                  width: width,
+                  height: height
                 }}
               >
                 <Description>
@@ -221,8 +221,8 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
               <StyledColumn
                 col={12}
                 style={{
-                  width: isClient && window.innerWidth,
-                  height: isClient && window.innerHeight
+                  width: width,
+                  height: height
                 }}
               >
                 <Heading1>
