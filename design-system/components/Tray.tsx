@@ -76,6 +76,8 @@ export function Tray({ theme, title, expanded, children }) {
 
   const observed = useRef(null);
 
+  if (children && children.length && children[0].props.height)
+    expandedHeight = children[0].props.height + initialHeight + 15.8; // for framer layer
   useEffect(() => {
     let height = observed.current.clientHeight;
     expandedHeight = height + initialHeight + 15.8;

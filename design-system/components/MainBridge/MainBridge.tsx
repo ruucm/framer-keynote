@@ -152,7 +152,7 @@ export function MainBridge({ theme, framerLayer, width, height, contentData }) {
   };
 
   useEffect(() => {
-    loadContentData();
+    if (contentData) loadContentData();
   }, [contentData]);
 
   return (

@@ -19,7 +19,14 @@ addPropertyControls(Typography, {
   type: {
     type: ControlType.Enum,
     title: "Type",
-    options: ["Heading2", "Heading3", "Paragraph", "ButtonText", "Link"]
+    options: [
+      "Heading1",
+      "Heading2",
+      "Heading3",
+      "Paragraph",
+      "ButtonText",
+      "Link"
+    ]
   },
   lineType: {
     type: ControlType.SegmentedEnum,
