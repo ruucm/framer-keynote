@@ -85,8 +85,14 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
       setCurrentPage(currentImage);
       currentImage > currentPage ? nextPageAnimEnd() : prevPageAnimEnd(); // make image animation end after mainImage loaded
     };
-    if (fileType === "image") mainLoaded && loadNext();
-    else loadNext();
+    const load = async () => {
+      if (fileType === "image") mainLoaded && loadNext();
+      else {
+        await sleep(selectedTheme.transitions.long);
+        loadNext();
+      }
+    };
+    load();
   }, [mainLoaded]);
 
   const goPrevPage = async () => {
@@ -196,7 +202,6 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
       );
     else if (type === "video")
       return (
-        // <div>
         <Video controls>
           <source
             src={markdownData[currentPage][4][1][1]["href"]}
@@ -204,7 +209,6 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
           />
           Your browser does not support the video tag.
         </Video>
-        // </div>
       );
   };
 
