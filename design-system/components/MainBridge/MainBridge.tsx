@@ -137,13 +137,13 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
 
   const MediaLayer = ({ type }) => {
     if (type === "image")
-      return <Img src={markdownData[currentPage][4][1]["href"]} />;
+      return <Img src={markdownData[currentPage][4][1][1]["href"]} />;
     else if (type === "video")
       return (
         <div>
           <Video width="320" height="240" controls>
             <source
-              src={markdownData[currentPage][4][1]["href"]}
+              src={markdownData[currentPage][4][1][1]["href"]}
               type="video/mp4"
             />
             Your browser does not support the video tag.
@@ -198,7 +198,10 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
               <Media>
                 <System.MediaContainer
                   content={[
-                    <MediaLayer type={markdownData[currentPage][4][1][2]} />
+                    <MediaLayer
+                      key={0}
+                      type={markdownData[currentPage][4][1][2]}
+                    />
                   ]}
                   reveal={reveal}
                   from={from}
