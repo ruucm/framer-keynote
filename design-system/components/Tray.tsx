@@ -34,6 +34,8 @@ export function Tray({ theme, title, expanded, children }) {
   const selectedTheme = useContext(ThemeContext) || themes[theme];
 
   const [expandedState, setExpandedState] = useState(false);
+
+  useEffect(() => setExpandedState(expanded), [expanded]);
   useEffect(() => setExpandedState(false), [title]);
   const ArrowDownPress = useKeyPress("ArrowDown");
   const ArrowUpPress = useKeyPress("ArrowUp");

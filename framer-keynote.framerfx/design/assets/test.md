@@ -12,7 +12,7 @@
 
 1.디자이너<br/>2.Technical 디자이너 or 프론트 개발자<br/>(Pro Creators)<br/>3.for Team (매니저)
 
-[framerLayer](0)
+[image](framer.jpg)
 
 ---
 

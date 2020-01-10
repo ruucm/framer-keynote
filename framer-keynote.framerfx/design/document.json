@@ -1353,7 +1353,14 @@
         "clip" : true,
         "codeComponentIdentifier" : ".\/MediaContainer.tsx_MediaContainer",
         "codeComponentProps" : {
-          "from" : "right",
+          "content" : [
+            {
+              "enabled" : true,
+              "type" : "componentinstance",
+              "value" : "f8IufFBLw"
+            }
+          ],
+          "from" : "left",
           "reveal" : true
         },
         "codeOverrideEnabled" : false,
@@ -1524,6 +1531,73 @@
         "top" : 3934,
         "visible" : true,
         "width" : 1920,
+        "widthType" : 0
+      },
+      {
+        "__class" : "FrameNode",
+        "aspectRatio" : 1.7777777777777777,
+        "blendingEnabled" : 0,
+        "blendingMode" : "normal",
+        "bottom" : null,
+        "centerAnchorX" : 0,
+        "centerAnchorY" : 0,
+        "children" : [
+
+        ],
+        "clip" : false,
+        "codeOverrideEnabled" : false,
+        "constraintsLocked" : false,
+        "deviceType" : null,
+        "exportOptions" : [
+
+        ],
+        "fillColor" : "rgba(255,255,255,1)",
+        "fillEnabled" : true,
+        "fillImage" : "mDpLhk1umA9e1BSxyZl7MXUVcY.jpg",
+        "fillImageOriginalName" : "framer.jpg",
+        "fillImagePixelHeight" : 720,
+        "fillImagePixelWidth" : 1280,
+        "fillImageResize" : "fill",
+        "fillType" : "image",
+        "guidesX" : [
+
+        ],
+        "guidesY" : [
+
+        ],
+        "height" : 663,
+        "heightType" : 0,
+        "id" : "f8IufFBLw",
+        "intrinsicHeight" : 360,
+        "intrinsicWidth" : 640,
+        "isExternalMaster" : null,
+        "isMaster" : false,
+        "isTarget" : false,
+        "left" : -416,
+        "locked" : false,
+        "name" : "framer",
+        "navigationTarget" : null,
+        "navigationTransition" : "push",
+        "navigationTransitionBackdropColor" : "rgba(4,4,15,.4)",
+        "navigationTransitionDirection" : "left",
+        "opacity" : 1,
+        "originalFilename" : "framer.jpg",
+        "originalid" : null,
+        "parentid" : "jLUPs9gNN",
+        "previewSettings" : null,
+        "radius" : 0,
+        "radiusBottomLeft" : 0,
+        "radiusBottomRight" : 0,
+        "radiusIsRelative" : false,
+        "radiusPerCorner" : false,
+        "radiusTopLeft" : 0,
+        "radiusTopRight" : 0,
+        "replicaInfo" : null,
+        "right" : null,
+        "rotation" : 0,
+        "top" : 1611,
+        "visible" : true,
+        "width" : 1179,
         "widthType" : 0
       }
     ],
