@@ -9,7 +9,6 @@ import * as System from "../../../design-system";
 import { Row, Column } from "ruucm-blocks/layouts";
 import mock from "./mock2";
 import { markdown as md } from "markdown";
-import { useProgressiveImage } from "./useProgressiveImage";
 
 const Wrap = styled(motion.div)`
   width: 100%;
@@ -64,7 +63,6 @@ export function MainBridge({
 }) {
   const selectedTheme = useContext(ThemeContext) || themes[theme];
   const [currentPage, setCurrentPage] = useState(0);
-  // const [currentPage, setCurrentPage] = useState(0);
   const [reveal, setReveal] = useState(true);
   const [from, setFrom] = useState("right");
   const [markdownData, setMarkdownData] = useState(mock);
@@ -74,22 +72,6 @@ export function MainBridge({
   let fileName = nextPageData && nextPageData[5][1][1]["href"];
   let fileType = nextPageData && nextPageData[5][1][2];
   const hasMedia = fileType === "image" || fileType === "video";
-
-  const [mainLoaded, currentSrc] = useProgressiveImage({
-    src: "/assets/images/" + fileName,
-    fallbackSrc: "/assets/images/minimized/" + fileName,
-    fileType: fileType
-  });
-
-  // useEffect(() => {
-  //   const loadNext = () => {
-  //     console.log("loadNext!!!");
-  //     setCurrentPage(currentPage);
-  //     currentPage > currentPage ? nextPageAnimEnd() : prevPageAnimEnd(); // make image animation end after mainImage loaded
-  //   };
-  //   if (fileType === "image") mainLoaded && loadNext();
-  //   else loadNext();
-  // }, [mainLoaded]);
 
   const goPrevPage = async () => {
     if (currentPage >= 1) {
