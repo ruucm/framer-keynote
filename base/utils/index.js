@@ -1,7 +1,11 @@
 import { motion } from "framer-motion";
 import styled, { css } from "styled-components";
+import { themes } from "../../base";
 
 export const isClient = typeof window !== "undefined";
+
+export const isMobile =
+  isClient && themes.light.breakpoint.mobile > window.innerWidth;
 
 export const localStorageSevice = (key, initialValue) => {
   let storedValue = null;

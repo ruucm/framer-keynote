@@ -3,7 +3,7 @@ import { useContext, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import styled, { css, ThemeContext } from "styled-components";
 import { themes } from "../../../base";
-import { sleep, wem } from "../../../base/utils";
+import { sleep, isMobile, wem } from "../../../base/utils";
 import { SharePropsWithChildren } from "../../../base/utils/SharePropsWithChildren";
 import * as System from "../../../design-system";
 import { Row, Column } from "ruucm-blocks/layouts";
@@ -53,7 +53,13 @@ const PageNumber = styled.div`
   bottom: 15px;
 `;
 
-export function MainBridge({ theme, framerLayer, width, height, contentData }) {
+export function MainBridgeExport({
+  theme,
+  framerLayer,
+  width,
+  height,
+  contentData
+}) {
   const selectedTheme = useContext(ThemeContext) || themes[theme];
   const [currentPage, setCurrentPage] = useState(0);
   const [reveal, setReveal] = useState(true);
@@ -163,8 +169,8 @@ export function MainBridge({ theme, framerLayer, width, height, contentData }) {
             <StyledColumn
               col={4}
               style={{
-                width: width,
-                height: height
+                width: "100vw",
+                height: "100vh"
               }}
             >
               <Description>
@@ -188,8 +194,8 @@ export function MainBridge({ theme, framerLayer, width, height, contentData }) {
             <Column
               col={8}
               style={{
-                width: width,
-                height: height,
+                width: "100vw",
+                height: "100vh",
                 background: selectedTheme.color.background,
                 overflow: "hidden"
               }}
@@ -215,8 +221,8 @@ export function MainBridge({ theme, framerLayer, width, height, contentData }) {
             <StyledColumn
               col={12}
               style={{
-                width: width,
-                height: height
+                width: "100vw",
+                height: "100vh"
               }}
             >
               <Heading1>
@@ -239,6 +245,6 @@ export function MainBridge({ theme, framerLayer, width, height, contentData }) {
     </SharePropsWithChildren>
   );
 }
-MainBridge.defaultProps = {
+MainBridgeExport.defaultProps = {
   theme: "light"
 };
