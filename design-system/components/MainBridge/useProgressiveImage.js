@@ -1,4 +1,4 @@
-import { useEffect, useReducer } from "react";
+import { useEffect, useReducer, useState } from "react";
 
 function reducer(currentSrc, action) {
   if (action.type === "main image loaded") {
@@ -12,6 +12,7 @@ function reducer(currentSrc, action) {
 
 export function useProgressiveImage({ src, fallbackSrc }) {
   const [currentSrc, dispatch] = useReducer(reducer);
+  const [loaded, setLoaded] = useState(false);
   useEffect(() => {
     const mainImage = new Image();
     const fallbackImage = new Image();

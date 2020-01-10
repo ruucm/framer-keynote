@@ -59,6 +59,9 @@ const Img = styled.img`
   width: 100%;
   height: 100%;
   object-fit: contain;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 `;
 const Video = styled.video``;
 
@@ -160,12 +163,21 @@ export function MainBridge({ theme, mediaLayer, width, height, contentData }) {
     let fileName = markdownData[currentPage][4][1][1]["href"];
     if (type === "image")
       return (
-        <Img
-          src={useProgressiveImage({
-            src: "/assets/images/" + fileName,
-            fallbackSrc: "/assets/images/minimized/" + fileName
-          })}
-        />
+        <div
+          style={{
+            background: selectedTheme.color.secondary,
+            minHeight: 500,
+            position: "relative",
+            borderRadius: 20
+          }}
+        >
+          <Img
+            src={useProgressiveImage({
+              src: "/assets/images/" + fileName,
+              fallbackSrc: "/assets/images/minimized/" + fileName
+            })}
+          />
+        </div>
       );
     else if (type === "video")
       return (
