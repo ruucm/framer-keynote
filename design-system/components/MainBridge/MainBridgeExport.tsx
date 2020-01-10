@@ -170,7 +170,7 @@ export function MainBridgeExport({
               col={4}
               style={{
                 width: "100vw",
-                height: "100vh"
+                height: isMobile ? "50vh" : "100vh"
               }}
             >
               <Description>
@@ -195,7 +195,7 @@ export function MainBridgeExport({
               col={8}
               style={{
                 width: "100vw",
-                height: "100vh",
+                height: isMobile ? "50vh" : "100vh",
                 background: selectedTheme.color.background,
                 overflow: "hidden"
               }}
@@ -222,7 +222,7 @@ export function MainBridgeExport({
               col={12}
               style={{
                 width: "100vw",
-                height: "100vh"
+                height: isMobile ? "50vh" : "100vh"
               }}
             >
               <Heading1>
