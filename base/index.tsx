@@ -7,8 +7,7 @@ const transitions = {
     duration: 0.28
   },
   long: {
-    // duration: 0.36
-    duration: 3
+    duration: 0.36
   },
   test: {
     duration: 3

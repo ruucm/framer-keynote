@@ -15,7 +15,7 @@ trayParagraph
 ##trayTitle2
 trayParagraph2
 
-[image](big-0.jpg)
+[image](mock-1.jpg)
 
 ---
 
@@ -25,7 +25,7 @@ trayParagraph2
 ##trayTitle3
 trayParagraph3
 
-[video](/assets/videos/intro.mp4)
+[video](intro.mp4)
 
 ---
 

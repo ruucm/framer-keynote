@@ -54,15 +54,6 @@ const PageNumber = styled.div`
   bottom: 15px;
 `;
 
-const Video = styled.video`
-  width: 100%;
-  height: auto;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-`;
-
 export function MainBridge({
   theme,
   mediaLayer,
@@ -236,7 +227,6 @@ export function MainBridge({
                       key={0}
                       type={fileType}
                       fileName={fileName}
-                      currentPage={currentPage}
                     />
                   ]}
                   reveal={reveal}

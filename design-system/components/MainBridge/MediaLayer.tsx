@@ -5,20 +5,19 @@ import styled, { css, ThemeContext } from "styled-components";
 import { themes } from "../../../base";
 import { SharePropsWithChildren } from "../../../base/utils/SharePropsWithChildren";
 import * as System from "../../../design-system";
-import { useProgressiveImage } from "./useProgressiveImage";
 
-// const Wrap = styled(motion.div)``;
+const Video = styled.video`
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;
 
-export function MediaLayer({ theme, type, fileName, currentPage }) {
+export function MediaLayer({ theme, type, fileName }) {
   const selectedTheme = useContext(ThemeContext) || themes[theme];
-
   console.log("fileName - MediaLayer", fileName);
-  const [mainLoaded, currentSrc] = useProgressiveImage({
-    src: "/assets/images/" + fileName,
-    fallbackSrc: "/assets/images/minimized/" + fileName,
-    fileType: "image"
-  });
-
   return (
     <SharePropsWithChildren selectedTheme={selectedTheme}>
       {(() => {
@@ -28,9 +27,7 @@ export function MediaLayer({ theme, type, fileName, currentPage }) {
               <div
                 style={{
                   background:
-                    "center / cover no-repeat url(" + currentSrc + ")",
-                  // background:
-                  //   "center / cover no-repeat url('/assets/images/" + fileName,
+                    "center / cover no-repeat url('/assets/images/" + fileName,
                   backgroundColor: selectedTheme.color.secondary,
                   height: "100%",
                   position: "relative"
@@ -38,7 +35,12 @@ export function MediaLayer({ theme, type, fileName, currentPage }) {
               />
             );
           case "video":
-            return <div>video</div>;
+            return (
+              <Video>
+                <source src={"/assets/videos/" + fileName} type="video/mp4" />
+                Your browser does not support the video tag.
+              </Video>
+            );
           default:
             return "Add Vaild Type";
         }
