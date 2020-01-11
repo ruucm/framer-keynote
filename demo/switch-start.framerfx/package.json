@@ -11,5 +11,9 @@
   "framer": {
     "id": "92ac570e-4ffa-430f-aa94-f1182e975a52"
   },
-  "author": ". ruucm"
+  "author": ". ruucm",
+  "dependencies": {
+    "@framer/rmarinac89.ios-notification": "^1.1.0",
+    "@framer/tishogeorgiev.switch": "^1.10.0"
+  }
 }

@@ -2,6 +2,29 @@
 # yarn lockfile v1
 
 
+"@framer/djfumberger.mockmatic@^1.14.0":
+  version "1.14.0"
+  resolved "https://registry.framer.com/@framer/djfumberger.mockmatic/-/@framer/djfumberger.mockmatic-1.14.0.tgz#65556ee287a71024f2acf91caa515e27474c1f02"
+  integrity sha512-SeK+z94cQDszvZF/0JKgFeShsUZ6THJ/KemDMEkAUvIPHJCLSWQJdKH2e17YZjgUAuza3jePxY0UvJSiRUvc6g==
+  dependencies:
+    three "^0.105.2"
+    three-obj-loader "^1.1.3"
+
+"@framer/rmarinac89.ios-notification@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.framer.com/@framer/rmarinac89.ios-notification/-/@framer/rmarinac89.ios-notification-1.1.0.tgz#446cba4a34eff4ac6c1c2f17075fbe7c13f846fd"
+  integrity sha512-DdQmqyziXB85lo/sXRYRxNPXC5UUPHMu9U4Cy9wmVIoZyEQF4r23olTJClpOoWE9aLNDQR21EAlwbEONP+Is+Q==
+  dependencies:
+    "@framer/djfumberger.mockmatic" "^1.14.0"
+
+"@framer/tishogeorgiev.switch@^1.10.0":
+  version "1.10.0"
+  resolved "https://registry.framer.com/@framer/tishogeorgiev.switch/-/@framer/tishogeorgiev.switch-1.10.0.tgz#04efdf54585127b3786afd769c3ef23057e63ff5"
+  integrity sha512-F/cgaFDOOXUUMCBjLuq3eJv14FJuCL51ecWRJFwZvD/ANh0D2OaoeaerlL0lwNiasBmwggvSDGcDQI/MYUpNCw==
+  dependencies:
+    hotkeys-js "^3.7.3"
+    reactn "^2.2.4"
+
 "@types/prop-types@*":
   version "15.7.0"
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.0.tgz#4c48fed958d6dcf9487195a0ef6456d5f6e0163a"
@@ -19,3 +42,30 @@ csstype@^2.2.0:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.6.1.tgz#4cfbf637a577497036ebcd7e32647ef19a0b8076"
   integrity sha512-wv7IRqCGsL7WGKB8gPvrl+++HlFM9kxAM6jL1EXNPNTshEJYilMkbfS2SnuHha77uosp/YVK0wAp2jmlBzn1tg==
+
+hotkeys-js@^3.7.3:
+  version "3.7.3"
+  resolved "https://registry.yarnpkg.com/hotkeys-js/-/hotkeys-js-3.7.3.tgz#f0c718166e844b3e52065d1b60cffaa6065b5183"
+  integrity sha512-CSaeVPAKEEYNexYR35znMJnCqoofk7oqG/AOOqWow1qDT0Yxy+g+Y8Hs/LhGlsZaSJ7973YN6/N41LAr3t30QQ==
+
+reactn@^2.2.4:
+  version "2.2.4"
+  resolved "https://registry.yarnpkg.com/reactn/-/reactn-2.2.4.tgz#f42168177f865feeeba057c8ad558d5456c730f9"
+  integrity sha512-ROZGocaVrunwcyxmmi7tQWk0/NhersX55Zh0yInDXxD2sc7L4iriSu6oG0Cmq2QcwfEJTFXIEL+ASBpDgAYywQ==
+  dependencies:
+    use-force-update "^1.0.5"
+
+three-obj-loader@^1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/three-obj-loader/-/three-obj-loader-1.1.3.tgz#4d540a256fcf2a59a6c6e0cd51a623efd76fd87d"
+  integrity sha512-usuOOTAqeM7J7dyae/I9ltFnfy1g47Hsr3byTvBTeH9LYz5vb2i8rLd2Hi1HEr0MbB5H4p9YrqFaDGcijXEVNw==
+
+three@^0.105.2:
+  version "0.105.2"
+  resolved "https://registry.yarnpkg.com/three/-/three-0.105.2.tgz#d135f1549bdcf5a9acd904ba3dbf9198a0268984"
+  integrity sha512-L3Al37k4g3hVbgFFS251UVtIc25chhyN0/RvXzR0C+uIBToV6EKDG+MZzEXm9L2miGUVMK27W46/VkP6WUZXMg==
+
+use-force-update@^1.0.5:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/use-force-update/-/use-force-update-1.0.7.tgz#f5e672633f5a398b25c33b2287150918bcb3526b"
+  integrity sha512-k5dppYhO+I5X/cd7ildbrzeMZJkWwdAh5adaIk0qKN2euh7J0h2GBGBcB4QZ385eyHHnp7LIygvebdRx3XKdwA==
