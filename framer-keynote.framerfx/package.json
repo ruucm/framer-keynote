@@ -13,6 +13,7 @@
   },
   "author": ". ruucm",
   "dependencies": {
+    "@framer/benjamin.animator": "^1.4.0",
     "@framer/benjamin.icon-generator": "^1.20.0",
     "@framer/benjamin.slider": "^1.9.0",
     "@framer/koenbok.signature": "^1.4.0",

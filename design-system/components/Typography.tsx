@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { themes } from "../../base";
 
 const P = styled(motion.p)`
+white-space: nowrap;
   ${props =>
     props.type === "Heading1" &&
     css`

@@ -1,4 +1,4 @@
-#Why Framer X
+# Why Framer X 🤔
 
 ---
 
@@ -16,7 +16,7 @@
 
 ---
 
-# Framer에는 천사들이 있기 때문이죠
+# Framer에는 천사들이
 
 ## Framer / Team Store
 
@@ -52,38 +52,176 @@
 
 ---
 
-#firebase Test
-##descSubTitle2
-222
-##trayTitle2
-trayParagraph2 Dolor consequat labore aute magna magna ex. Est proident enim magna est dolor magna sunt. Adipisicing do incididunt esse ad ea reprehenderit do occaecat eiusmod eu consequat. Ullamco tempor dolore reprehenderit veniam ex eiusmod duis aliqua incididunt deserunt esse. Quis reprehenderit incididunt culpa laboris.
-
-[framerLayer](3)
+# 한마디로. 모든 걸 할 수 있습니다
 
 ---
 
-#descTitle3
-##descSubTitle3
-333
-##trayTitle3
-trayParagraph3
+# Graphics Override
+
+## 브러쉬와 같은
+
+-
+
+## 만들어 두고 계속 재사용 가능
+
+-
+
+[framerLayer](0)
+
+---
+
+# Demo2 (Override Examples)
+
+---
+
+# 그래픽 따로, 인터렉션 따로..
+
+---
+
+# 하나의 템플릿을 만들자 / Code Component
+
+---
+
+# Code Component
+
+## 나만의 레고블럭 만들기
+
+-
+
+## 모든 요소가 하나에
+
+1.스타일<br/>2. 인터렉션<br/>3. 기능<br/>4. 상태관리<br/>5. 이들을 쉽게 변경할 수 있는 Properties
+
+[image](lego.jpg)
+
+---
+
+# Lottie
+
+## Enhanced Lottie
+
+-
+
+## package/ruucm-h/enhanced-lottie
+
+-
+
+[framerLayer](1)
+
+---
+
+# Video
+
+## HTML Video
+
+-
+
+## package/ruucm/html-video
+
+-
 
 [video](intro.mp4)
 
 ---
 
-#descTitle4
+# Firebase Data
+
+## Firebase
+
+-
+
+## package/hunterc/firebasedata
+
+link.harbor.school/fire
+
+[framerLayer](2)
 
 ---
 
-#descTitle5
+# 디자인 시스템
 
 ---
 
-#descTitle6
-##descSubTitle6
-6666
-##trayTitle6
-trayParagraph6
+# 개발자 / 디자이너 / 기획자
 
-[framerLayer](1)
+---
+
+# 어차피 같은 프로덕트를 만드는 사람들
+
+---
+
+# Framer Korea Meetup
+
+## 예시1
+
+-
+
+## 제작기간 2주
+
+-
+
+[image](ds-0.png)
+
+---
+
+# Apple Music<br/>Design System
+
+## 예시2 (하버스쿨 중급반)
+
+-
+
+## 제작기간 4주
+
+-
+
+[image](ds-1.png)
+
+---
+
+# 키노트
+
+## 예시3
+
+-
+
+## 제작기간 2일
+
+-
+
+[image](ds-2.png)
+
+---
+
+# 광고
+
+---
+
+# 코드에 익숙하지 않다
+
+## 하버스쿨 기초반 (~1/20)
+
+코드 처음 다루어 보는데, Framer X 를 사용해<br/>빠르고 자유롭게 인터렉션을 구현하고 싶으시다면
+
+## Override + Component
+
+-
+
+[image](hf5-1-min.png)
+
+---
+
+# Pro Creators
+
+## 하버스쿨 기초+중급반 (~1/20)
+
+Pro Creators가 되어, 팀내에서 독보적인 디자이너가 되어보고 싶으시다면
+
+## 팀내에서 독보적인 디자이너가 되어보고 싶다
+
+-
+
+[image](hf5-1-min.png)
+
+---
+
+# QA!
