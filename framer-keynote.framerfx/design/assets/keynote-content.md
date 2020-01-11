@@ -30,6 +30,28 @@
 
 ---
 
+# Demo1 (스케치 파일에 인터렉션 더하기)
+
+---
+
+# Override
+
+---
+
+# Override
+
+## 텍스트만 Override 하셨나요?
+
+.
+
+## 무한한 Property의 세계
+
+1. 텍스트 / 이미지 / 모든 그래픽 Properties<br/>2. 파일(모든 타입 가능) / Color<br/>3. 실제 데이터, 현재 사용자의 상태<br/>4. 다른 그래픽 레이어<br/>5. 자주 쓰는 요소들을 새롭게 정의
+
+[image](properties.png)
+
+---
+
 #firebase Test
 ##descSubTitle2
 222
