@@ -2,7 +2,7 @@
 
 ---
 
-#위지윅 툴이 있습니다
+# 위지윅 툴이 있습니다
 
 ## 코드 없이 인터렉션을 만들 수 있습니다
 
@@ -16,13 +16,17 @@
 
 ---
 
-#descTitle2
-##descSubTitle2
-222
-##trayTitle2
-trayParagraph2 Dolor consequat labore aute magna magna ex. Est proident enim magna est dolor magna sunt. Adipisicing do incididunt esse ad ea reprehenderit do occaecat eiusmod eu consequat. Ullamco tempor dolore reprehenderit veniam ex eiusmod duis aliqua incididunt deserunt esse. Quis reprehenderit incididunt culpa laboris.
+# Framer에는 천사들이 있기 때문이죠
 
-[framerLayer](0)
+## Framer / Team Store
+
+-
+
+## packages.framer.com
+
+.
+
+[image](framer-store.png)
 
 ---
 
