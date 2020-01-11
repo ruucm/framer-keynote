@@ -41,7 +41,7 @@ export function MediaLayer({ theme, type, fileName, framerLayer }) {
             );
           case "video":
             return (
-              <Video>
+              <Video autoPlay>
                 <source
                   src={baseUrl + "assets/videos/" + fileName}
                   type="video/mp4"
