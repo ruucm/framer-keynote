@@ -14,7 +14,7 @@
         "clip" : true,
         "codeComponentIdentifier" : ".\/MainBridge.tsx_MainBridge",
         "codeComponentProps" : {
-          "contentData" : "design\/assets\/test.md",
+          "contentData" : "design\/assets\/keynote-content.md",
           "framerLayer" : [
             {
               "enabled" : true,
