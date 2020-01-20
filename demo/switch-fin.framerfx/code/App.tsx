@@ -8,18 +8,19 @@ import {
 } from "framer";
 import { useSwitch } from "@framer/tishogeorgiev.switch/code";
 
-let controls;
-export function SwitchButton(): Override {
-  controls = useSwitch();
+// let controls;
+// export function SwitchButton(): Override {
+//   controls = useSwitch();
 
-  return {
-    onTap: () => {
-      //   controls.setSwitchState("sharedSwitch", 1);
-    }
-  };
-}
+//   return {
+//     onTap: () => {
+//       //   controls.setSwitchState("sharedSwitch", 1);
+//     }
+//   };
+// }
 
 export function DragScale(props): Override {
+  const controls = useSwitch();
   const x = useMotionValue(0);
   const dragAnim = useAnimation();
   x.onChange(x => {

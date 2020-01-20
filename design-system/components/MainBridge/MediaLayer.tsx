@@ -15,6 +15,11 @@ const Video = styled.video`
   left: 50%;
   transform: translate(-50%, -50%);
 `;
+const Image = styled.div`
+  @media (max-width: ${props => props.selectedTheme.breakpoint.mobile}px) {
+    background-size: contain !important;
+  }
+`;
 
 const baseUrl = isClient && window.location.href.replace("/preview", "");
 export function MediaLayer({ theme, type, fileName, framerLayer }) {
@@ -26,7 +31,7 @@ export function MediaLayer({ theme, type, fileName, framerLayer }) {
         switch (type) {
           case "image":
             return (
-              <div
+              <Image
                 style={{
                   background:
                     "center / cover no-repeat url('" +

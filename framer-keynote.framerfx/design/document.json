@@ -1249,7 +1249,7 @@
         "id" : "pwcaQCOva",
         "intrinsicHeight" : 52,
         "intrinsicWidth" : 380,
-        "left" : -3854,
+        "left" : -2849,
         "locked" : false,
         "name" : null,
         "opacity" : 1,
@@ -1265,9 +1265,9 @@
         "radiusTopRight" : 0,
         "right" : null,
         "rotation" : 0,
-        "top" : 3400,
+        "top" : 2718,
         "visible" : true,
-        "width" : 380,
+        "width" : 361,
         "widthType" : 0
       },
       {
@@ -1400,7 +1400,7 @@
         "clip" : true,
         "codeComponentIdentifier" : ".\/MainBridgeExport.tsx_MainBridgeExport",
         "codeComponentProps" : {
-          "contentData" : "design\/assets\/keynote-content.md",
+          "contentData" : "design\/assets\/2.md",
           "framerLayer" : [
             {
               "enabled" : true,
@@ -1659,8 +1659,8 @@
                 "rotation" : 0,
                 "top" : null,
                 "visible" : true,
-                "width" : 480,
-                "widthType" : 0
+                "width" : 1,
+                "widthType" : 1
               },
               {
                 "__class" : "CodeComponentNode",
@@ -1716,8 +1716,8 @@
                 "rotation" : 0,
                 "top" : null,
                 "visible" : true,
-                "width" : 480,
-                "widthType" : 0
+                "width" : 1,
+                "widthType" : 1
               }
             ],
             "clip" : false,
@@ -1772,8 +1772,8 @@
             "rotation" : 0,
             "top" : 0,
             "visible" : true,
-            "width" : 480,
-            "widthType" : 0
+            "width" : 0.95999999999999996,
+            "widthType" : 1
           }
         ],
         "clip" : true,
@@ -1944,12 +1944,12 @@
             "radiusPerCorner" : false,
             "radiusTopLeft" : 0,
             "radiusTopRight" : 0,
-            "right" : 148,
+            "right" : null,
             "rotation" : 0,
             "top" : null,
             "visible" : true,
-            "width" : 480,
-            "widthType" : 0
+            "width" : 0.61855670103092786,
+            "widthType" : 1
           },
           {
             "__class" : "CodeComponentNode",
@@ -2001,12 +2001,12 @@
             "radiusPerCorner" : false,
             "radiusTopLeft" : 0,
             "radiusTopRight" : 0,
-            "right" : 148,
+            "right" : null,
             "rotation" : 0,
             "top" : null,
             "visible" : true,
-            "width" : 480,
-            "widthType" : 0
+            "width" : 0.61855670103092786,
+            "widthType" : 1
           }
         ],
         "clip" : true,
@@ -3807,8 +3807,8 @@
             "aspectRatio" : 1,
             "blendingEnabled" : 0,
             "blendingMode" : "normal",
-            "bottom" : 0,
-            "centerAnchorX" : 0.83388704318936879,
+            "bottom" : null,
+            "centerAnchorX" : 0.5,
             "centerAnchorY" : 0.5,
             "children" : [
               {
@@ -3966,9 +3966,9 @@
             "radiusTopLeft" : 0,
             "radiusTopRight" : 0,
             "replicaInfo" : null,
-            "right" : 0,
+            "right" : null,
             "rotation" : 0,
-            "top" : 0,
+            "top" : null,
             "visible" : true,
             "width" : 400,
             "widthType" : 0

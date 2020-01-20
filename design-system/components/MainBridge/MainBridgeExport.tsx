@@ -44,6 +44,10 @@ const Media = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  @media (max-width: ${props => props.selectedTheme.breakpoint.mobile}px) {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 const PageNumber = styled.div`

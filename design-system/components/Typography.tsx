@@ -14,6 +14,12 @@ white-space: nowrap;
       font-weight: 700;
       font-size: 60px;
       color: ${props.theme.color.body};
+      @media (max-width: ${props => props.theme.breakpoint.tablet}px) {
+        font-size: 40px;
+      }
+      @media (max-width: ${props => props.theme.breakpoint.mobile}px) {
+        font-size: 28px;
+      }
     `}
   ${props =>
     props.type === "Heading2" &&
@@ -24,6 +30,12 @@ white-space: nowrap;
       letter-spacing: -1.2px;
       color: ${props.theme.color.body};
       line-height: 44px;
+      @media (max-width: ${props => props.theme.breakpoint.tablet}px) {
+        font-size: 30px;
+      }
+      @media (max-width: ${props => props.theme.breakpoint.mobile}px) {
+        font-size: 25px;
+      }
     `}
   ${props =>
     props.type === "Heading3" &&
