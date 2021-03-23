@@ -6,7 +6,7 @@ import { themes } from "../../../base";
 import { sleep, wem } from "../../../base/utils";
 import { SharePropsWithChildren } from "../../../base/utils/SharePropsWithChildren";
 import * as System from "../../../design-system";
-import { Row, Column } from "ruucm-blocks/layouts";
+// import { Row, Column } from "ruucm-blocks/layouts";
 import mock from "./mock2";
 import { markdown as md } from "markdown";
 
@@ -15,6 +15,16 @@ const Wrap = styled(motion.div)`
   height: 100%;
 `;
 
+const Row = styled.div`
+  display: flex;
+`
+const Column = styled.div`
+  ${({ col }) =>
+    col &&
+    css`
+      flex: ${`0 0 ${(col / 12) * 100}%`};
+    `}
+`
 const StyledColumn = styled(Column)`
   position: relative;
   padding: 0 110px;
